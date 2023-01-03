@@ -1,6 +1,6 @@
 export interface Book {
   _id: string;
-  tile: string;
+  title: string;
   author: string;
   pages: number;
   inPrint: boolean;
