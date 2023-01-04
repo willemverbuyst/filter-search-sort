@@ -9,7 +9,12 @@ function App() {
   const [query, setQuery] = useState<string>('');
   return (
     <>
-      <SearchInput setSearchQuery={setQuery} />
+      <SearchInput
+        setSearchQuery={(query) => {
+          console.log(query);
+          setQuery(query);
+        }}
+      />
       <h1>Persons</h1>
       <ul>
         {persons
