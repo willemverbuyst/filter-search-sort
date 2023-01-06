@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import { search } from './business/search';
 import { sort } from './business/sort';
 import SearchInput from './components/SearchInput';
