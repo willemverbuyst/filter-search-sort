@@ -1,3 +1,5 @@
+import { Row } from 'react-bootstrap';
+
 interface Props<T extends Record<PropertyKey, any>> {
   object: T;
   setProperty: (key: keyof T) => void;
@@ -8,8 +10,8 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
 ) {
   const { object, setProperty } = props;
   return (
-    <>
-      <label htmlFor="sorters">Sort</label>
+    <Row style={{ width: '30vw' }} className="m-3 justify-content-center">
+      <label htmlFor="sorters">Sort by</label>
       <select
         id="sorters"
         placeholder="Sort..."
@@ -22,6 +24,6 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
           </option>
         ))}
       </select>
-    </>
+    </Row>
   );
 }

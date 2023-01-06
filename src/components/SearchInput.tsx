@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { useDebounce } from '../hooks/useDebounce';
 
 interface Props {
@@ -16,14 +17,15 @@ export default function SearchInput(props: Props) {
   }, [debouncedQuery, setSearchQuery]);
 
   return (
-    <>
-      <label htmlFor="search">Search</label>
-      <input
-        id="search"
-        placeholder="Search..."
-        aria-label="Search"
-        onChange={(event) => setQuery(event.target.value)}
-      />
-    </>
+    <Row className="m-3 justify-content-center">
+      <Col style={{ width: '50vw' }}>
+        <input
+          id="search"
+          placeholder="Search..."
+          aria-label="Search"
+          onChange={(event) => setQuery(event.target.value)}
+        />
+      </Col>
+    </Row>
   );
 }

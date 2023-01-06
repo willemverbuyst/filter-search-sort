@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { Col, Container, Row, Stack } from 'react-bootstrap';
 import { search } from './business/search';
 import { sort } from './business/sort';
+import { BookRenderer } from './components/Renderers/Bookrenderer';
+import { PeopleRenderer } from './components/Renderers/PeopleRenderer';
 import SearchInput from './components/SearchInput';
 import Sorters from './components/Sorters';
 import { books } from './dummyData/books';
@@ -18,46 +21,45 @@ function App() {
     property: 'title',
   });
   return (
-    <>
+    <Container style={{ width: '100vw' }}>
       <SearchInput
         setSearchQuery={(query) => {
           console.log(query);
           setQuery(query);
         }}
       />
-      <h1>Persons</h1>
-      <Sorters
-        object={persons[0]}
-        setProperty={(property) => setPersonProperty({ property })}
-      />
-      <ul>
-        {persons
-          .filter((person) =>
-            search(person, ['firstName', 'surname'], query, true)
-          )
-          .sort((a, b) => sort(a, b, personProperty.property))
-          .map((person) => (
-            <li key={person._id}>
-              {person.firstName} {person.surname}
-            </li>
-          ))}
-      </ul>
-      <h1>Books</h1>
-      <Sorters
-        object={books[0]}
-        setProperty={(property) => setBookProperty({ property })}
-      />
-      <ul>
-        {books
-          .filter((book) => search(book, ['title'], query))
-          .sort((a, b) => sort(a, b, bookProperty.property))
-          .map((book) => (
-            <li key={book._id}>
-              {book.title} {book.pages}
-            </li>
-          ))}
-      </ul>
-    </>
+
+      <Stack direction="horizontal">
+        <Row className="m-3 justify-content-center align-self-start">
+          <h1>Persons</h1>
+          <Sorters
+            object={persons[0]}
+            setProperty={(property) => setPersonProperty({ property })}
+          />
+          {persons
+            .filter((person) =>
+              search(person, ['firstName', 'surname'], query, true)
+            )
+            .sort((a, b) => sort(a, b, personProperty.property))
+            .map((person) => (
+              <PeopleRenderer {...person} key={person._id} />
+            ))}
+        </Row>
+        <Row className="m-3 justify-content-center align-self-start">
+          <h1>Books</h1>
+          <Sorters
+            object={books[0]}
+            setProperty={(property) => setBookProperty({ property })}
+          />
+          {books
+            .filter((book) => search(book, ['title'], query))
+            .sort((a, b) => sort(a, b, bookProperty.property))
+            .map((book) => (
+              <BookRenderer {...book} key={book._id} />
+            ))}
+        </Row>
+      </Stack>
+    </Container>
   );
 }
 
