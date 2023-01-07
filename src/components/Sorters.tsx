@@ -1,8 +1,9 @@
 import { Row } from 'react-bootstrap';
+import { Property } from '../interfaces/Property';
 
 interface Props<T extends Record<PropertyKey, any>> {
   object: T;
-  setProperty: (key: keyof T) => void;
+  setProperty: (propertyType: Property<T>) => void;
 }
 
 export default function Sorters<T extends Record<PropertyKey, any>>(
@@ -16,12 +17,25 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
         id="sorters"
         placeholder="Sort..."
         aria-label="Sort"
-        onChange={(event) => setProperty(event.target.value)}
+        onChange={(event) => {
+          const values = event.target.value.split('-');
+          if (values.length === 2) {
+            setProperty({
+              property: values[0],
+              isDescending: values[1] === 'true',
+            });
+          }
+        }}
       >
         {Object.keys(object).map((key) => (
-          <option key={key} value={key}>
-            {key}
-          </option>
+          <>
+            <option key={`${key}-true`} value={`${key}-true`}>
+              {key} descending
+            </option>
+            <option key={`${key}-false`} value={`${key}-false`}>
+              {key} ascending
+            </option>
+          </>
         ))}
       </select>
     </Row>

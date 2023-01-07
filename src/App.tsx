@@ -16,9 +16,11 @@ function App() {
   const [query, setQuery] = useState<string>('');
   const [personProperty, setPersonProperty] = useState<Property<Person>>({
     property: 'firstName',
+    isDescending: true,
   });
   const [bookProperty, setBookProperty] = useState<Property<Book>>({
     property: 'title',
+    isDescending: true,
   });
   const [showBooks, setShowBooks] = useState<boolean>(true);
   const buttonText = showBooks ? 'show people' : 'show books';
@@ -45,13 +47,13 @@ function App() {
           <h1>Persons</h1>
           <Sorters
             object={persons[0]}
-            setProperty={(property) => setPersonProperty({ property })}
+            setProperty={(propertyType) => setPersonProperty(propertyType)}
           />
           {persons
             .filter((person) =>
               search(person, ['firstName', 'surname'], query, true)
             )
-            .sort((a, b) => sort(a, b, personProperty.property))
+            .sort((a, b) => sort(a, b, personProperty))
             .map((person) => (
               <PeopleRenderer {...person} key={person._id} />
             ))}
@@ -61,11 +63,11 @@ function App() {
           <h1>Books</h1>
           <Sorters
             object={books[0]}
-            setProperty={(property) => setBookProperty({ property })}
+            setProperty={(propertyType) => setBookProperty(propertyType)}
           />
           {books
             .filter((book) => search(book, ['title'], query))
-            .sort((a, b) => sort(a, b, bookProperty.property))
+            .sort((a, b) => sort(a, b, bookProperty))
             .map((book) => (
               <BookRenderer {...book} key={book._id} />
             ))}
