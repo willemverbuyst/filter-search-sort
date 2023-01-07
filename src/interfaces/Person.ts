@@ -8,5 +8,5 @@ export interface Person {
   company: string;
   email: string;
   married: boolean;
-  birtDate: Date;
+  birthDate: Date;
 }

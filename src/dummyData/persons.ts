@@ -5,13 +5,13 @@ export const persons: Array<Person> = [
     _id: '9712fc52-5da1-4f7e-b5d3-8fe12075aaae',
     firstName: 'Velma',
     surname: 'Salazar',
-    age: 40,
+    age: 0,
     eyeColor: 'brown',
     gender: 'female',
     company: 'AVIT',
     email: 'velmasalazar@avit.com',
     married: false,
-    birtDate: new Date(
+    birthDate: new Date(
       'Thu Aug 18 2022 21:47:47 GMT+0200 (Central European Summer Time)'
     ),
   },
@@ -19,13 +19,13 @@ export const persons: Array<Person> = [
     _id: '0cc6b2de-3f97-406d-86f4-cae5368be6f5',
     firstName: 'Roberta',
     surname: 'Welch',
-    age: 24,
+    age: 0,
     eyeColor: 'blue',
     gender: 'female',
     company: 'BLUEGRAIN',
     email: 'robertawelch@bluegrain.com',
     married: true,
-    birtDate: new Date(
+    birthDate: new Date(
       'Sat Nov 29 1997 15:07:06 GMT+0100 (Central European Standard Time)'
     ),
   },
@@ -39,7 +39,7 @@ export const persons: Array<Person> = [
     company: 'SILODYNE',
     email: 'sabrinanielsen@silodyne.com',
     married: true,
-    birtDate: new Date(
+    birthDate: new Date(
       'Mon Nov 01 1982 10:43:00 GMT+0100 (Central European Standard Time)'
     ),
   },
@@ -53,7 +53,7 @@ export const persons: Array<Person> = [
     company: 'SYBIXTEX',
     email: 'madeleineolson@sybixtex.com',
     married: false,
-    birtDate: new Date(
+    birthDate: new Date(
       'Sat Sep 23 1995 05:30:11 GMT+0200 (Central European Summer Time)'
     ),
   },
@@ -67,7 +67,7 @@ export const persons: Array<Person> = [
     company: 'AEORA',
     email: 'normanbush@aeora.com',
     married: true,
-    birtDate: new Date(
+    birthDate: new Date(
       'Tue Oct 04 2011 10:08:38 GMT+0200 (Central European Summer Time)'
     ),
   },
@@ -81,7 +81,7 @@ export const persons: Array<Person> = [
     company: 'BIOTICA',
     email: 'mcdonaldmckinney@biotica.com',
     married: false,
-    birtDate: new Date(
+    birthDate: new Date(
       'Sat Nov 20 1976 13:58:37 GMT+0100 (Central European Standard Time)'
     ),
   },
@@ -95,7 +95,7 @@ export const persons: Array<Person> = [
     company: 'ZAJ',
     email: 'bridgetbradshaw@zaj.com',
     married: false,
-    birtDate: new Date(
+    birthDate: new Date(
       'Tue Jun 04 2002 00:28:31 GMT+0200 (Central European Summer Time)'
     ),
   },
@@ -109,7 +109,7 @@ export const persons: Array<Person> = [
     company: 'BIZMATIC',
     email: 'joycechaney@bizmatic.com',
     married: true,
-    birtDate: new Date(
+    birthDate: new Date(
       'Sun May 23 1982 02:07:21 GMT+0200 (Central European Summer Time)'
     ),
   },
@@ -123,7 +123,7 @@ export const persons: Array<Person> = [
     company: 'WRAPTURE',
     email: 'griffinhumphrey@wrapture.com',
     married: true,
-    birtDate: new Date(
+    birthDate: new Date(
       'Tue Nov 02 2021 09:07:11 GMT+0100 (Central European Standard Time)'
     ),
   },
@@ -137,7 +137,7 @@ export const persons: Array<Person> = [
     company: 'SAVVY',
     email: 'diannehenderson@savvy.com',
     married: false,
-    birtDate: new Date(
+    birthDate: new Date(
       'Sat Jul 03 1971 18:28:39 GMT+0100 (Central European Standard Time)'
     ),
   },

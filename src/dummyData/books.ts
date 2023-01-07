@@ -20,7 +20,7 @@ export const books: Array<Book> = [
     _id: 'f49f332e-f74e-4ee4-a8d4-46edce46d4b1',
     title: 'Elit dolor enim excepteur veniam duis labore in Lorem.',
     author: 'Ramsey Lindsay',
-    pages: 112,
+    pages: 0,
     inPrint: false,
   },
   {
