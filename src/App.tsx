@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Col, Container, Row, Stack } from 'react-bootstrap';
+import { Button, Container, Row, Stack } from 'react-bootstrap';
 import { search } from './business/search';
 import { sort } from './business/sort';
 import { BookRenderer } from './components/Renderers/Bookrenderer';
@@ -20,16 +20,27 @@ function App() {
   const [bookProperty, setBookProperty] = useState<Property<Book>>({
     property: 'title',
   });
-  return (
-    <Container style={{ width: '100vw' }}>
-      <SearchInput
-        setSearchQuery={(query) => {
-          console.log(query);
-          setQuery(query);
-        }}
-      />
+  const [showBooks, setShowBooks] = useState<boolean>(true);
+  const buttonText = showBooks ? 'show people' : 'show books';
 
-      <Stack direction="horizontal">
+  return (
+    <Container
+      style={{ width: '100vw' }}
+      className="m-3 justify-content-center"
+    >
+      <Row className="m-3">
+        <Stack direction="horizontal" className="justify-content-center">
+          <SearchInput
+            setSearchQuery={(query) => {
+              console.log(query);
+              setQuery(query);
+            }}
+          />
+          <Button onClick={() => setShowBooks(!showBooks)}>{buttonText}</Button>
+        </Stack>
+      </Row>
+
+      {!showBooks ? (
         <Row className="m-3 justify-content-center align-self-start">
           <h1>Persons</h1>
           <Sorters
@@ -45,6 +56,7 @@ function App() {
               <PeopleRenderer {...person} key={person._id} />
             ))}
         </Row>
+      ) : (
         <Row className="m-3 justify-content-center align-self-start">
           <h1>Books</h1>
           <Sorters
@@ -58,7 +70,7 @@ function App() {
               <BookRenderer {...book} key={book._id} />
             ))}
         </Row>
-      </Stack>
+      )}
     </Container>
   );
 }

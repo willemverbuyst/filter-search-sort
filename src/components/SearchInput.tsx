@@ -18,7 +18,7 @@ export default function SearchInput(props: Props) {
 
   return (
     <Row className="m-3 justify-content-center">
-      <Col style={{ width: '50vw' }}>
+      <Col>
         <input
           id="search"
           placeholder="Search..."
