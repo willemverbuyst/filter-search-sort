@@ -1,6 +1,6 @@
-import { Property } from '../interfaces/Sorter';
+import { Sorter } from '../interfaces/Sorter';
 
-export function sort<T>(a: T, b: T, propertyType: Property<T>) {
+export function sort<T>(a: T, b: T, propertyType: Sorter<T>) {
   const { property, isDescending } = propertyType;
   const result = () => {
     if (a[property] > b[property]) {

@@ -1,17 +1,29 @@
+import { ReactNode, useState } from 'react';
 import { Row } from 'react-bootstrap';
-import { Property } from '../interfaces/Sorter';
+import { sort } from '../business/sort';
+import { Sorter } from '../interfaces/Sorter';
+
+type PropsWithChildrenFunction<P, T> = P & {
+  children?(item: T): ReactNode;
+};
 
 interface Props<T extends Record<PropertyKey, any>> {
-  object: T;
-  setProperty: (propertyType: Property<T>) => void;
+  dataSource: Array<T>;
+  initialSortProperty: keyof T;
 }
 
 export default function Sorters<T extends Record<PropertyKey, any>>(
-  props: Props<T>
+  props: PropsWithChildrenFunction<Props<T>, T>
 ) {
-  const { object, setProperty } = props;
+  const { dataSource, children, initialSortProperty } = props;
+  const [sortProperty, setSortProperty] = useState<Sorter<T>>({
+    property: initialSortProperty,
+    isDescending: true,
+  });
+  const object = dataSource.length ? dataSource[0] : {};
+
   return (
-    <Row style={{ width: '30vw' }} className="m-3 justify-content-center">
+    <Row className="m-3 justify-content-center">
       <label htmlFor="sorters">Sort by</label>
       <select
         id="sorters"
@@ -20,7 +32,7 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
         onChange={(event) => {
           const values = event.target.value.split('-');
           if (values.length === 2) {
-            setProperty({
+            setSortProperty({
               property: values[0],
               isDescending: values[1] === 'true',
             });
@@ -38,6 +50,11 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
           </>
         ))}
       </select>
+
+      {children &&
+        dataSource
+          .sort((a, b) => sort(a, b, sortProperty))
+          .map((d) => children(d))}
     </Row>
   );
 }

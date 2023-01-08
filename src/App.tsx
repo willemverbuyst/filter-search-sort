@@ -54,10 +54,9 @@ function App() {
       {!showBooks ? (
         <Row className="m-3 justify-content-center align-self-start">
           <h1>Persons</h1>
-          <Sorters
-            object={persons[0]}
-            setProperty={(propertyType) => setPersonSortProperty(propertyType)}
-          />
+          <Sorters dataSource={persons} initialSortProperty="firstName">
+            {(person) => <PeopleRenderer {...person} />}
+          </Sorters>
           <br />
           <Filters
             object={persons[0]}
@@ -86,10 +85,9 @@ function App() {
       ) : (
         <Row className="m-3 justify-content-center align-self-start">
           <h1>Books</h1>
-          <Sorters
-            object={books[0]}
-            setProperty={(propertyType) => setBookSortProperty(propertyType)}
-          />
+          <Sorters dataSource={books} initialSortProperty="title">
+            {(book) => <BookRenderer {...book} />}
+          </Sorters>
           <br />
           <Filters
             object={books[0]}
