@@ -11,27 +11,26 @@ import Sorters from './components/Sorters';
 import { books } from './dummyData/books';
 import { persons } from './dummyData/persons';
 import { Book } from './interfaces/Book';
+import { Filter } from './interfaces/Filter';
 import { Person } from './interfaces/Person';
-import { Property } from './interfaces/Property';
+import { Sorter } from './interfaces/Sorter';
 
 function App() {
   const [query, setQuery] = useState<string>('');
-  const [personSortProperty, setPersonSortProperty] = useState<
-    Property<Person>
-  >({
+  const [personSortProperty, setPersonSortProperty] = useState<Sorter<Person>>({
     property: 'firstName',
     isDescending: true,
   });
-  const [bookSortProperty, setBookSortProperty] = useState<Property<Book>>({
+  const [bookSortProperty, setBookSortProperty] = useState<Sorter<Book>>({
     property: 'title',
     isDescending: true,
   });
   const [showBooks, setShowBooks] = useState<boolean>(true);
   const [bookFilterProperties, setBookFilterProperties] = useState<
-    Array<keyof Book>
+    Array<Filter<Book>>
   >([]);
   const [personFilterProperties, setPersonFilterProperties] = useState<
-    Array<keyof Person>
+    Array<Filter<Person>>
   >([]);
   const buttonText = showBooks ? 'show people' : 'show books';
 
@@ -96,11 +95,35 @@ function App() {
             object={books[0]}
             properties={bookFilterProperties}
             onChangeFilter={(property) => {
-              bookFilterProperties.includes(property)
-                ? setBookFilterProperties(
-                    bookFilterProperties.filter((p) => property !== p)
-                  )
-                : setBookFilterProperties([...bookFilterProperties, property]);
+              const propertyMatch = bookFilterProperties.some(
+                (bookFilterProperty) =>
+                  bookFilterProperty.property === property.property &&
+                  bookFilterProperty.isTruthySelected
+              );
+              const fullMatch = bookFilterProperties.some(
+                (bookFilterProperty) =>
+                  bookFilterProperty.property === property.property &&
+                  bookFilterProperty.isTruthySelected ===
+                    property.isTruthySelected
+              );
+              if (fullMatch) {
+                setBookFilterProperties([
+                  ...bookFilterProperties.filter(
+                    (bookFilterProperty) =>
+                      property.property !== bookFilterProperty.property
+                  ),
+                ]);
+              } else if (propertyMatch) {
+                setBookFilterProperties([
+                  ...bookFilterProperties.filter(
+                    (bookFilterProperty) =>
+                      property.property !== bookFilterProperty.property
+                  ),
+                  property,
+                ]);
+              } else {
+                setBookFilterProperties([...bookFilterProperties, property]);
+              }
             }}
           />
           {books

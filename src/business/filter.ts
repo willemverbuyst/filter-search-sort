@@ -1,8 +1,11 @@
+import { Filter } from '../interfaces/Filter';
+
 export function filter<T>(
   object: T,
-  filterProperties: Array<keyof T>
+  filterProperties: Array<Filter<T>>
 ): boolean {
   return filterProperties.every((filterProperty) => {
-    return object[filterProperty] ? true : false;
+    const { property, isTruthySelected } = filterProperty;
+    return isTruthySelected ? object[property] : !object[property];
   });
 }

@@ -1,5 +1,5 @@
 import { Row } from 'react-bootstrap';
-import { Property } from '../interfaces/Property';
+import { Property } from '../interfaces/Sorter';
 
 interface Props<T extends Record<PropertyKey, any>> {
   object: T;

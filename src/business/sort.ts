@@ -1,4 +1,4 @@
-import { Property } from '../interfaces/Property';
+import { Property } from '../interfaces/Sorter';
 
 export function sort<T>(a: T, b: T, propertyType: Property<T>) {
   const { property, isDescending } = propertyType;
