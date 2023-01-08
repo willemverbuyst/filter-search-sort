@@ -3,23 +3,24 @@ import { Col, Row } from 'react-bootstrap';
 import { useDebounce } from '../hooks/useDebounce';
 
 interface Props {
-  setSearchQuery: (searchQuery: string) => void;
+  searchQuery: string;
+  setSearchQuery(searchQuery: string): void;
 }
 
 export default function SearchInput(props: Props) {
-  const { setSearchQuery } = props;
-  const [query, setQuery] = useState<string>('');
-
+  const { setSearchQuery, searchQuery } = props;
+  const [query, setQuery] = useState<string>(searchQuery);
   const debouncedQuery = useDebounce(query, 250);
 
   useEffect(() => {
     setSearchQuery(debouncedQuery);
-  }, [debouncedQuery, setSearchQuery]);
+  }, [debouncedQuery]);
 
   return (
     <Row className="m-3 justify-content-center">
       <Col>
         <input
+          value={query}
           id="search"
           placeholder="Search..."
           aria-label="Search"

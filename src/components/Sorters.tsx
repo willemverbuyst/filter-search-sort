@@ -1,25 +1,16 @@
-import { ReactNode, useState } from 'react';
+import React from 'react';
 import { Row } from 'react-bootstrap';
-import { sort } from '../business/sort';
 import { Sorter } from '../interfaces/Sorter';
-
-type PropsWithChildrenFunction<P, T> = P & {
-  children?(item: T): ReactNode;
-};
 
 interface Props<T extends Record<PropertyKey, any>> {
   dataSource: Array<T>;
-  initialSortProperty: keyof T;
+  setSortProperty(sortProperty: Sorter<T>): void;
 }
 
 export default function Sorters<T extends Record<PropertyKey, any>>(
-  props: PropsWithChildrenFunction<Props<T>, T>
+  props: Props<T>
 ) {
-  const { dataSource, children, initialSortProperty } = props;
-  const [sortProperty, setSortProperty] = useState<Sorter<T>>({
-    property: initialSortProperty,
-    isDescending: true,
-  });
+  const { dataSource, setSortProperty } = props;
   const object = dataSource.length ? dataSource[0] : {};
 
   return (
@@ -40,21 +31,16 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
         }}
       >
         {Object.keys(object).map((key) => (
-          <>
+          <React.Fragment key={key}>
             <option key={`${key}-true`} value={`${key}-true`}>
               {key} descending
             </option>
             <option key={`${key}-false`} value={`${key}-false`}>
               {key} ascending
             </option>
-          </>
+          </React.Fragment>
         ))}
       </select>
-
-      {children &&
-        dataSource
-          .sort((a, b) => sort(a, b, sortProperty))
-          .map((d) => children(d))}
     </Row>
   );
 }
