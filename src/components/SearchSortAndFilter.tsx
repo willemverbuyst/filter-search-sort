@@ -13,13 +13,14 @@ import { PropsWithChildrenFunction } from './types/PropsWithChildrenFunction';
 interface Props<T extends Record<PropertyKey, any>> {
   title: string;
   dataSource: Array<T>;
+  filterKeys: Array<keyof T>;
   searchProperties: Array<keyof T>;
   initialSortProperty: Sorter<T>;
   initialSearchQuery: string;
   initialFilterProperties: Array<Filter<T>>;
 }
 
-interface SearchSortAndFilterState<T> {
+interface SearchSortAndFilterState<T extends Record<PropertyKey, any>> {
   searchQuery: string;
   sortProperty: Sorter<T>;
   filterProperties: Array<Filter<T>>;
@@ -31,6 +32,7 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
   const {
     title,
     dataSource,
+    filterKeys,
     initialFilterProperties,
     initialSearchQuery,
     initialSortProperty,
@@ -69,7 +71,7 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
         }}
       />
       <Filters
-        dataSource={dataSource}
+        filterKeys={filterKeys}
         filterProperties={filterProperties}
         setFilterProperties={(filterProperties) => {
           setSearchSortAndFilterState({

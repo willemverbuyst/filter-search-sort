@@ -24,6 +24,7 @@ function App() {
           title="books"
           dataSource={books}
           searchProperties={['title', 'author']}
+          filterKeys={['pages', 'inPrint']}
           initialSortProperty={{ property: 'title', isDescending: true }}
           initialFilterProperties={[]}
           initialSearchQuery=""
@@ -35,6 +36,7 @@ function App() {
           title="people"
           dataSource={persons}
           searchProperties={['firstName', 'surname']}
+          filterKeys={['married', 'eyeColor', 'age']}
           initialSortProperty={{ property: '_id', isDescending: true }}
           initialFilterProperties={[]}
           initialSearchQuery=""
