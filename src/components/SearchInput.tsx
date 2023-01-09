@@ -10,7 +10,7 @@ interface Props {
 export default function SearchInput(props: Props) {
   const { setSearchQuery, searchQuery } = props;
   const [query, setQuery] = useState<string>(searchQuery);
-  const debouncedQuery = useDebounce(query, 250);
+  const debouncedQuery = useDebounce<string>(query, 250);
 
   useEffect(() => {
     setSearchQuery(debouncedQuery);
