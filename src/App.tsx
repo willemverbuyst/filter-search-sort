@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { Button, Container, Row } from 'react-bootstrap';
-import { BookRenderer } from './components/Renderers/Bookrenderer';
-import { PeopleRenderer } from './components/Renderers/PeopleRenderer';
-import SearchSortAndFilter from './components/SearchSortAndFilter';
-import { books } from './dummyData/books';
-import { persons } from './dummyData/persons';
+import { useState } from "react";
+import { Button, Container, Row } from "react-bootstrap";
+import { BookRenderer } from "./components/Renderers/Bookrenderer";
+import { PeopleRenderer } from "./components/Renderers/PeopleRenderer";
+import SearchSortAndFilter from "./components/SearchSortAndFilter";
+import { books } from "./dummyData/books";
+import { persons } from "./dummyData/persons";
 
 function App() {
   const [showBooks, setShowBooks] = useState<boolean>(true);
-  const buttonText = showBooks ? 'show people' : 'show books';
+  const buttonText = showBooks ? "show people" : "show books";
 
   return (
     <Container
-      style={{ width: '100vw' }}
+      style={{ width: "100vw" }}
       className="m-3 justify-content-center"
     >
       <Row className="m-3">
@@ -23,9 +23,9 @@ function App() {
         <SearchSortAndFilter
           title="books"
           dataSource={books}
-          searchProperties={['title', 'author']}
-          filterKeys={['pages', 'inPrint']}
-          initialSortProperty={{ property: 'title', isDescending: true }}
+          searchProperties={["title", "author"]}
+          filterKeys={["pages", "inPrint"]}
+          initialSortProperty={{ property: "title", isDescending: true }}
           initialFilterProperties={[]}
           initialSearchQuery=""
         >
@@ -35,9 +35,9 @@ function App() {
         <SearchSortAndFilter
           title="people"
           dataSource={persons}
-          searchProperties={['firstName', 'surname']}
-          filterKeys={['married', 'eyeColor', 'age']}
-          initialSortProperty={{ property: '_id', isDescending: true }}
+          searchProperties={["firstName", "surname"]}
+          filterKeys={["married", "eyeColor", "age"]}
+          initialSortProperty={{ property: "_id", isDescending: true }}
           initialFilterProperties={[]}
           initialSearchQuery=""
         >

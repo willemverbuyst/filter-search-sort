@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { Row } from 'react-bootstrap';
-import { filter } from '../business/filter';
-import { search } from '../business/search';
-import { sort } from '../business/sort';
-import { Filter } from '../interfaces/Filter';
-import { Sorter } from '../interfaces/Sorter';
-import Filters from './Filters';
-import SearchInput from './SearchInput';
-import Sorters from './Sorters';
-import { PropsWithChildrenFunction } from './types/PropsWithChildrenFunction';
+import { useState } from "react";
+import { Row } from "react-bootstrap";
+import { filter } from "../business/filter";
+import { search } from "../business/search";
+import { sort } from "../business/sort";
+import { Filter } from "../interfaces/Filter";
+import { Sorter } from "../interfaces/Sorter";
+import Filters from "./Filters";
+import SearchInput from "./SearchInput";
+import Sorters from "./Sorters";
+import { PropsWithChildrenFunction } from "./types/PropsWithChildrenFunction";
 
 interface Props<T extends Record<PropertyKey, any>> {
   title: string;

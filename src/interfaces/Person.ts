@@ -4,7 +4,7 @@ export interface Person {
   surname: string;
   age: number;
   eyeColor: string;
-  gender: 'male' | 'female';
+  gender: "male" | "female";
   company: string;
   email: string;
   married: boolean;

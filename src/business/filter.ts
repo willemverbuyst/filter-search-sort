@@ -1,4 +1,4 @@
-import { Filter } from '../interfaces/Filter';
+import { Filter } from "../interfaces/Filter";
 
 export function filter<T>(
   object: T,

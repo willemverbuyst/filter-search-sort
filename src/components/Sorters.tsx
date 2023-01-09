@@ -1,6 +1,6 @@
-import React from 'react';
-import { Row } from 'react-bootstrap';
-import { Sorter } from '../interfaces/Sorter';
+import React from "react";
+import { Row } from "react-bootstrap";
+import { Sorter } from "../interfaces/Sorter";
 
 interface Props<T extends Record<PropertyKey, any>> {
   dataSource: Array<T>;
@@ -21,11 +21,11 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
         placeholder="Sort..."
         aria-label="Sort"
         onChange={(event) => {
-          const values = event.target.value.split('-');
+          const values = event.target.value.split("-");
           if (values.length === 2) {
             setSortProperty({
               property: values[0],
-              isDescending: values[1] === 'true',
+              isDescending: values[1] === "true",
             });
           }
         }}

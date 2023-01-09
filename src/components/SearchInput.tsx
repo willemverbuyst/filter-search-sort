@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
-import { useDebounce } from '../hooks/useDebounce';
+import { useEffect, useState } from "react";
+import { Col, Row } from "react-bootstrap";
+import { useDebounce } from "../hooks/useDebounce";
 
 interface Props {
   searchQuery: string;

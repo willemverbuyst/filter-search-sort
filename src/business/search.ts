@@ -4,14 +4,14 @@ export function search<T>(
   query: string,
   shouldBeCaseSensitive: boolean = false
 ): boolean {
-  if (query === '') {
+  if (query === "") {
     return true;
   }
 
   return properties.some((property) => {
     const value = object[property];
 
-    if (typeof value === 'string' || typeof value === 'number') {
+    if (typeof value === "string" || typeof value === "number") {
       if (shouldBeCaseSensitive) {
         return value.toString().includes(query);
       } else {
