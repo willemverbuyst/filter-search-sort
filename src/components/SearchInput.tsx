@@ -14,7 +14,7 @@ export default function SearchInput(props: Props) {
 
   useEffect(() => {
     setSearchQuery(debouncedQuery);
-  }, [debouncedQuery]);
+  }, [debouncedQuery, setSearchQuery]);
 
   return (
     <Row className="m-3 justify-content-center">

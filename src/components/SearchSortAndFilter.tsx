@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Row } from "react-bootstrap";
 import { filter } from "../business/filter";
 import { search } from "../business/search";
@@ -54,12 +54,14 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
       <h1>{title}</h1>
       <SearchInput
         searchQuery={initialSearchQuery}
-        setSearchQuery={(searchQuery) =>
-          setSearchSortAndFilterState({
-            ...searchSortAndFilterState,
-            searchQuery,
-          })
-        }
+        setSearchQuery={useCallback(
+          (searchQuery) =>
+            setSearchSortAndFilterState((prev) => ({
+              ...prev,
+              searchQuery,
+            })),
+          []
+        )}
       />
       <Sorters
         dataSource={dataSource}
