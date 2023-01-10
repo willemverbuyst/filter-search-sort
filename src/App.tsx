@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Container, Row } from "react-bootstrap";
+import { ButtonGroup, Container, Row, ToggleButton } from "react-bootstrap";
 import { BookRenderer } from "./components/Renderers/Bookrenderer";
 import { PeopleRenderer } from "./components/Renderers/PeopleRenderer";
 import SearchSortAndFilter from "./components/SearchSortAndFilter";
@@ -7,19 +7,39 @@ import { books } from "./dummyData/books";
 import { persons } from "./dummyData/persons";
 
 function App() {
-  const [showBooks, setShowBooks] = useState<boolean>(true);
-  const buttonText = showBooks ? "show people" : "show books";
+  const [display, setDiplay] = useState<"books" | "people">("books");
 
   return (
     <Container
       style={{ width: "100vw" }}
       className="m-3 justify-content-center"
     >
-      <Row className="m-3">
-        <Button onClick={() => setShowBooks(!showBooks)}>{buttonText}</Button>
+      <Row className="m-3 justify-content-center">
+        <ButtonGroup style={{ width: "20rem" }}>
+          <ToggleButton
+            id="tbg-btn-1"
+            value="books"
+            type="radio"
+            variant="outline-primary"
+            checked={display === "books"}
+            onChange={() => setDiplay("books")}
+          >
+            books
+          </ToggleButton>
+          <ToggleButton
+            id="tbg-btn-2"
+            value="people"
+            type="radio"
+            variant="outline-primary"
+            checked={display === "people"}
+            onChange={() => setDiplay("people")}
+          >
+            people
+          </ToggleButton>
+        </ButtonGroup>
       </Row>
 
-      {showBooks ? (
+      {display === "books" ? (
         <SearchSortAndFilter
           title="books"
           dataSource={books}
