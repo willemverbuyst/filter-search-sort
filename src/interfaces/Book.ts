@@ -4,4 +4,6 @@ export interface Book {
   author: string;
   pages: number;
   inPrint: boolean;
+  translated: boolean;
+  createdAt: Date;
 }

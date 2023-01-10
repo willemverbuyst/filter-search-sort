@@ -1,9 +1,11 @@
 import { Card } from "react-bootstrap";
+import Moment from "react-moment";
 import { Book } from "../../interfaces/Book";
 import styles from "../../styles/card.module.css";
 
 export function BookRenderer(props: Book) {
-  const { _id, author, pages, inPrint, title } = props;
+  const { _id, author, createdAt, pages, inPrint, title } = props;
+  console.log(createdAt);
   return (
     <Card
       style={{ width: "30vw" }}
@@ -13,6 +15,9 @@ export function BookRenderer(props: Book) {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>pages: {pages} </Card.Text>
+        <Card.Text>
+          createdAt: <Moment date={createdAt} format="YYYY/MM/DD" />
+        </Card.Text>
       </Card.Body>
       <Card.Footer>#{_id}</Card.Footer>
     </Card>
