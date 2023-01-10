@@ -61,7 +61,7 @@ export default function Filters<T extends Record<PropertyKey, any>>(
                     ({ property, isTruthySelected }) =>
                       property === key && isTruthySelected
                   )}
-                  label={`${key} is truthy`}
+                  label={key}
                 />
               </Form.Group>
               <Form.Group key={`${key}-false`} className="m-3" controlId={key}>
@@ -79,7 +79,7 @@ export default function Filters<T extends Record<PropertyKey, any>>(
                     ({ property, isTruthySelected }) =>
                       property === key && !isTruthySelected
                   )}
-                  label={`${key} is falsy`}
+                  label={`not ${key}`}
                 />
               </Form.Group>
             </React.Fragment>

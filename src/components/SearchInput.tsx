@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import { useDebounce } from "../hooks/useDebounce";
 
 interface Props {
@@ -18,15 +18,15 @@ export default function SearchInput(props: Props) {
 
   return (
     <Row className="m-3 justify-content-center">
-      <Col>
-        <input
+      <Form style={{ width: "20rem" }}>
+        <Form.Control
           value={query}
           id="search"
           placeholder="Search..."
           aria-label="Search"
           onChange={(event) => setQuery(event.target.value)}
         />
-      </Col>
+      </Form>
     </Row>
   );
 }
