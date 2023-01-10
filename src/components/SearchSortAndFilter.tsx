@@ -11,7 +11,6 @@ import Sorters from "./Sorters";
 import { PropsWithChildrenFunction } from "./types/PropsWithChildrenFunction";
 
 interface Props<T extends Record<PropertyKey, any>> {
-  title: string;
   dataSource: Array<T>;
   filterKeys: Array<keyof T>;
   searchProperties: Array<keyof T>;
@@ -30,7 +29,6 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
   props: PropsWithChildrenFunction<Props<T>, T>
 ) {
   const {
-    title,
     dataSource,
     filterKeys,
     initialFilterProperties,
@@ -51,7 +49,6 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
 
   return (
     <Row className="m-3 justify-content-center align-self-start">
-      <h1>{title}</h1>
       <SearchInput
         searchQuery={initialSearchQuery}
         setSearchQuery={useCallback(

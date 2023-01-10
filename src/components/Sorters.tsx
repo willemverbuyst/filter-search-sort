@@ -16,7 +16,6 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
   return (
     <Row className="m-3 justify-content-center">
       <Form style={{ width: "20rem" }}>
-        <Form.Label>Sort by</Form.Label>
         <Form.Select
           id="sorters"
           placeholder="Sort..."

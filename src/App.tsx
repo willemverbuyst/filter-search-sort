@@ -41,7 +41,6 @@ function App() {
 
       {display === "books" ? (
         <SearchSortAndFilter
-          title="books"
           dataSource={books}
           searchProperties={["title", "author"]}
           filterKeys={["pages", "inPrint"]}
@@ -53,7 +52,6 @@ function App() {
         </SearchSortAndFilter>
       ) : (
         <SearchSortAndFilter
-          title="people"
           dataSource={persons}
           searchProperties={["firstName", "surname"]}
           filterKeys={["married", "eyeColor", "age"]}
