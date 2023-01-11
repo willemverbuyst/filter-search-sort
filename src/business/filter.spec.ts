@@ -1,32 +1,42 @@
 import { genericFilter } from "./filter";
 
+const testObject = {
+  foo: 1,
+  bar: "test",
+  quux: true,
+  quuz: false,
+};
+
 describe("Filter", () => {
   it("should return true when filter properties is an empty array", () => {
-    expect(genericFilter({ foo: 1 }, [])).toBe(true);
+    expect(genericFilter(testObject, [])).toBe(true);
   });
 
-  it("should return true if truthty flag is true", () => {
+  it("should return true", () => {
     expect(
-      genericFilter({ foo: 1 }, [{ property: "foo", isTruthySelected: true }])
+      genericFilter(testObject, [{ property: "foo", isTruthySelected: true }])
     ).toBe(true);
     expect(
-      genericFilter({ foo: true }, [
-        { property: "foo", isTruthySelected: true },
+      genericFilter(testObject, [
+        { property: "bar", isTruthySelected: true },
+        { property: "bar", isTruthySelected: true },
+        { property: "quux", isTruthySelected: true },
+        { property: "quuz", isTruthySelected: false },
       ])
     ).toBe(true);
   });
 
-  it("should return false if thruthy flag is false", () => {
+  it("should return false", () => {
     expect(
-      genericFilter({ foo: 1 }, [{ property: "foo", isTruthySelected: false }])
+      genericFilter(testObject, [{ property: "quuz", isTruthySelected: true }])
     ).toBe(false);
-  });
-
-  it("should return true if truthty flag is false and prop is false", () => {
     expect(
-      genericFilter({ foo: false }, [
-        { property: "foo", isTruthySelected: false },
+      genericFilter(testObject, [
+        { property: "bar", isTruthySelected: true },
+        { property: "bar", isTruthySelected: true },
+        { property: "quux", isTruthySelected: true },
+        { property: "quuz", isTruthySelected: true },
       ])
-    ).toBe(true);
+    ).toBe(false);
   });
 });
