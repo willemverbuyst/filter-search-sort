@@ -1,14 +1,14 @@
-name: Prettier formatting
+name: Vite build
 
 on: [push, pull_request]
 
 jobs:
-  check-formatting:
+  check-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Install dependencies
         run: yarn
-      - name: Check formatting
-        run: yarn format:check
+      - name: Check build
+        run: yarn build
