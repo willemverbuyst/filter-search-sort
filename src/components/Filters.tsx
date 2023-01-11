@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Stack } from "react-bootstrap";
+
 import { Filter } from "../interfaces/Filter";
 
 interface Props<T extends Record<PropertyKey, any>> {

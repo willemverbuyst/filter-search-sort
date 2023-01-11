@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { Form, Row } from "react-bootstrap";
+
 import { useDebounce } from "../hooks/useDebounce";
 
 interface Props {
