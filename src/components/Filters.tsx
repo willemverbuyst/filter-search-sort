@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Stack } from "react-bootstrap";
 
-import { Filter } from "../interfaces/Filter";
+import { Filter } from "../interfaces";
 
 interface Props<T extends Record<PropertyKey, any>> {
   filterKeys: Array<keyof T>;
@@ -9,7 +9,7 @@ interface Props<T extends Record<PropertyKey, any>> {
   setFilterProperties(filterProperties: Array<Filter<T>>): void;
 }
 
-export default function Filters<T extends Record<PropertyKey, any>>(
+export function Filters<T extends Record<PropertyKey, any>>(
   props: Props<T>
 ): JSX.Element {
   const { filterKeys, filterProperties, setFilterProperties } = props;

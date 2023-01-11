@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Form, Row } from "react-bootstrap";
 
-import { useDebounce } from "../hooks/useDebounce";
+import { useDebounce } from "../hooks";
 
 interface Props {
   searchQuery: string;
   setSearchQuery(searchQuery: string): void;
 }
 
-export default function SearchInput(props: Props): JSX.Element {
+export function SearchInput(props: Props): JSX.Element {
   const { setSearchQuery, searchQuery } = props;
   const [query, setQuery] = useState<string>(searchQuery);
   const debouncedQuery = useDebounce<string>(query, 250);

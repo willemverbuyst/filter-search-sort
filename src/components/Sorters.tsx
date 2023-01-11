@@ -1,14 +1,14 @@
 import React from "react";
 import { Form, Row } from "react-bootstrap";
 
-import { Sorter } from "../interfaces/Sorter";
+import { Sorter } from "../interfaces";
 
 interface Props<T extends Record<PropertyKey, any>> {
   dataSource: Array<T>;
   setSortProperty(sortProperty: Sorter<T>): void;
 }
 
-export default function Sorters<T extends Record<PropertyKey, any>>(
+export function Sorters<T extends Record<PropertyKey, any>>(
   props: Props<T>
 ): JSX.Element {
   const { dataSource, setSortProperty } = props;

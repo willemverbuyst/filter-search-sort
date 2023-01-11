@@ -1,15 +1,11 @@
 import { useCallback, useState } from "react";
 import { Row } from "react-bootstrap";
 
-import { genericFilter } from "../business/filter";
-import { genericSearch } from "../business/search";
-import { genericSort } from "../business/sort";
-import { Filter } from "../interfaces/Filter";
-import { Sorter } from "../interfaces/Sorter";
-import Filters from "./Filters";
-import SearchInput from "./SearchInput";
-import Sorters from "./Sorters";
-import { PropsWithChildrenFunction } from "./types/PropsWithChildrenFunction";
+import { genericFilter, genericSearch, genericSort } from "../business";
+import { Filter, PropsWithChildrenFunction, Sorter } from "../interfaces";
+import { Filters } from "./Filters";
+import { SearchInput } from "./SearchInput";
+import { Sorters } from "./Sorters";
 
 interface Props<T extends Record<PropertyKey, any>> {
   dataSource: Array<T>;
@@ -26,7 +22,7 @@ interface SearchSortAndFilterState<T extends Record<PropertyKey, any>> {
   filterProperties: Array<Filter<T>>;
 }
 
-export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
+export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
   props: PropsWithChildrenFunction<Props<T>, T>
 ): JSX.Element {
   const {
