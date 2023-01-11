@@ -1,0 +1,14 @@
+name: Eslint linting
+
+on: [push, pull_request]
+
+jobs:
+  check-linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn
+      - name: Check linting
+        run: yarn lint
