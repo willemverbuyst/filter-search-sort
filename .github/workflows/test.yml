@@ -1,0 +1,14 @@
+name: Jest test
+
+on: [push, pull_request]
+
+jobs:
+  check-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn
+      - name: Check tests
+        run: yarn test
