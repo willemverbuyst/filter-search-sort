@@ -1,6 +1,6 @@
 import { Filter } from "../interfaces/Filter";
 
-export function filter<T>(
+export function genericFilter<T>(
   object: T,
   filterProperties: Array<Filter<T>>
 ): boolean {

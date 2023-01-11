@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 import { Row } from "react-bootstrap";
-import { filter } from "../business/filter";
-import { search } from "../business/search";
-import { sort } from "../business/sort";
+import { genericFilter } from "../business/filter";
+import { genericSearch } from "../business/search";
+import { genericSort } from "../business/sort";
 import { Filter } from "../interfaces/Filter";
 import { Sorter } from "../interfaces/Sorter";
 import Filters from "./Filters";
@@ -81,9 +81,9 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
       />
       {children &&
         dataSource
-          .filter((a) => search(a, searchProperties, searchQuery, false))
-          .sort((a, b) => sort(a, b, sortProperty))
-          .filter((a) => filter(a, filterProperties))
+          .filter((a) => genericSearch(a, searchProperties, searchQuery, false))
+          .sort((a, b) => genericSort(a, b, sortProperty))
+          .filter((a) => genericFilter(a, filterProperties))
           .map((d) => children(d))}
     </Row>
   );
