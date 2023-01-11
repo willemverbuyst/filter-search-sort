@@ -12,6 +12,7 @@
 }
 
 body {
+  background-color: #aaa;
   margin: 0;
   text-align: center;
   display: flex;
