@@ -11,10 +11,10 @@ interface Props<T extends Record<PropertyKey, any>> {
 
 export default function Filters<T extends Record<PropertyKey, any>>(
   props: Props<T>
-) {
+): JSX.Element {
   const { filterKeys, filterProperties, setFilterProperties } = props;
 
-  function onChangeFilter(property: Filter<T>) {
+  function onChangeFilter(property: Filter<T>): void {
     const propertyMatch = filterProperties.some(
       (filterProperty) =>
         filterProperty.property === property.property &&
@@ -55,7 +55,7 @@ export default function Filters<T extends Record<PropertyKey, any>>(
                   type="checkbox"
                   id={`${key}-true`}
                   value={key}
-                  onChange={() =>
+                  onChange={(): void =>
                     onChangeFilter({ property: key, isTruthySelected: true })
                   }
                   checked={filterProperties.some(
@@ -70,7 +70,7 @@ export default function Filters<T extends Record<PropertyKey, any>>(
                   type="checkbox"
                   value={key}
                   id={`${key}-false`}
-                  onChange={() =>
+                  onChange={(): void =>
                     onChangeFilter({
                       property: key as any,
                       isTruthySelected: false,

@@ -8,7 +8,7 @@ interface Props {
   setSearchQuery(searchQuery: string): void;
 }
 
-export default function SearchInput(props: Props) {
+export default function SearchInput(props: Props): JSX.Element {
   const { setSearchQuery, searchQuery } = props;
   const [query, setQuery] = useState<string>(searchQuery);
   const debouncedQuery = useDebounce<string>(query, 250);
@@ -25,7 +25,7 @@ export default function SearchInput(props: Props) {
           id="search"
           placeholder="Search..."
           aria-label="Search"
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event): void => setQuery(event.target.value)}
         />
       </Form>
     </Row>

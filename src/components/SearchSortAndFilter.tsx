@@ -28,7 +28,7 @@ interface SearchSortAndFilterState<T extends Record<PropertyKey, any>> {
 
 export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
   props: PropsWithChildrenFunction<Props<T>, T>
-) {
+): JSX.Element {
   const {
     dataSource,
     filterKeys,
@@ -63,7 +63,7 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
       />
       <Sorters
         dataSource={dataSource}
-        setSortProperty={(sortProperty) => {
+        setSortProperty={(sortProperty): void => {
           setSearchSortAndFilterState({
             ...searchSortAndFilterState,
             sortProperty,
@@ -73,7 +73,7 @@ export default function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
       <Filters
         filterKeys={filterKeys}
         filterProperties={filterProperties}
-        setFilterProperties={(filterProperties) => {
+        setFilterProperties={(filterProperties): void => {
           setSearchSortAndFilterState({
             ...searchSortAndFilterState,
             filterProperties,

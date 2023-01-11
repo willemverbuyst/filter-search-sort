@@ -10,7 +10,7 @@ interface Props<T extends Record<PropertyKey, any>> {
 
 export default function Sorters<T extends Record<PropertyKey, any>>(
   props: Props<T>
-) {
+): JSX.Element {
   const { dataSource, setSortProperty } = props;
   const object = dataSource.length ? dataSource[0] : {};
 
@@ -21,7 +21,7 @@ export default function Sorters<T extends Record<PropertyKey, any>>(
           id="sorters"
           placeholder="Sort..."
           aria-label="Sort"
-          onChange={(event) => {
+          onChange={(event): void => {
             const values = event.target.value.split("-");
             if (values.length === 2) {
               setSortProperty({

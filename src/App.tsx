@@ -7,7 +7,7 @@ import SearchSortAndFilter from "./components/SearchSortAndFilter";
 import { books } from "./dummyData/books";
 import { persons } from "./dummyData/persons";
 
-function App() {
+function App(): JSX.Element {
   const [display, setDiplay] = useState<"books" | "people">("books");
 
   return (
@@ -23,7 +23,7 @@ function App() {
             type="radio"
             variant="outline-primary"
             checked={display === "books"}
-            onChange={() => setDiplay("books")}
+            onChange={(): void => setDiplay("books")}
           >
             books
           </ToggleButton>
@@ -33,7 +33,7 @@ function App() {
             type="radio"
             variant="outline-primary"
             checked={display === "people"}
-            onChange={() => setDiplay("people")}
+            onChange={(): void => setDiplay("people")}
           >
             people
           </ToggleButton>
@@ -49,7 +49,7 @@ function App() {
           initialFilterProperties={[]}
           initialSearchQuery=""
         >
-          {(book) => <BookRenderer {...book} key={book._id} />}
+          {(book): JSX.Element => <BookRenderer {...book} key={book._id} />}
         </SearchSortAndFilter>
       ) : (
         <SearchSortAndFilter
@@ -60,7 +60,9 @@ function App() {
           initialFilterProperties={[]}
           initialSearchQuery=""
         >
-          {(person) => <PeopleRenderer {...person} key={person._id} />}
+          {(person): JSX.Element => (
+            <PeopleRenderer {...person} key={person._id} />
+          )}
         </SearchSortAndFilter>
       )}
     </Container>

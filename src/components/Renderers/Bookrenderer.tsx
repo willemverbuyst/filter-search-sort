@@ -4,7 +4,7 @@ import Moment from "react-moment";
 import { Book } from "../../interfaces/Book";
 import styles from "../../styles/card.module.css";
 
-export function BookRenderer(props: Book) {
+export function BookRenderer(props: Book): JSX.Element {
   const { _id, author, createdAt, pages, inPrint, title } = props;
 
   return (

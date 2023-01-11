@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import { Person } from "../../interfaces/Person";
 import styles from "../../styles/card.module.css";
 
-export function PeopleRenderer(props: Person) {
+export function PeopleRenderer(props: Person): JSX.Element {
   const { _id, firstName, age, eyeColor, surname, email } = props;
   return (
     <Card
