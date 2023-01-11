@@ -7,7 +7,7 @@ const testObject = {
   quuz: false,
 };
 
-describe("Filter", () => {
+describe("genericFilter", () => {
   it("should return true when filter properties is an empty array", () => {
     expect(genericFilter(testObject, [])).toBe(true);
   });

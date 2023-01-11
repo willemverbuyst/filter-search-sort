@@ -1,6 +1,6 @@
 import { Sorter } from "../interfaces/Sorter";
 
-export function genericSort<T>(a: T, b: T, propertyType: Sorter<T>) {
+export function genericSort<T>(a: T, b: T, propertyType: Sorter<T>): number {
   const { property, isDescending } = propertyType;
   const result = () => {
     if (a[property] > b[property]) {
