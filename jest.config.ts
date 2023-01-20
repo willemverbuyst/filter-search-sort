@@ -1,5 +1,5 @@
 export default {
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.(t|j)sx?$": ["@swc/jest"],
   },
 };
