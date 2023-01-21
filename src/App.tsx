@@ -6,6 +6,7 @@ import {
   PeopleRenderer,
   SearchSortAndFilter,
 } from "./components";
+import { Text } from "./components/Text";
 import { books, persons } from "./dummyData";
 
 function App(): JSX.Element {
@@ -16,6 +17,9 @@ function App(): JSX.Element {
       style={{ width: "100vw" }}
       className="m-3 justify-content-center"
     >
+      <Row className="m-3" justify-content-center>
+        <Text component="h1">Try out advanced React</Text>
+      </Row>
       <Row className="m-3 justify-content-center">
         <ButtonGroup style={{ width: "20rem" }}>
           <ToggleButton
