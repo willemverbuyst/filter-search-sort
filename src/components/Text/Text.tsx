@@ -1,16 +1,6 @@
 import React from "react";
 
-type Color = "teal" | "white";
-
-type TextProps<T extends React.ElementType> = {
-  component?: T;
-  color?: Color | "black";
-};
-
-type Props<T extends React.ElementType> = React.PropsWithChildren<
-  TextProps<T>
-> &
-  Omit<React.ComponentPropsWithoutRef<T>, keyof TextProps<T>>;
+import { Props } from "./types";
 
 export const Text = <T extends React.ElementType = "span">({
   component,
