@@ -1,14 +1,28 @@
 import React from "react";
 
-type Props<T> = {
+type Color = "teal" | "white";
+
+type TextProps<T extends React.ElementType> = {
   component?: T;
-  children: React.ReactNode;
+  color?: Color | "black";
 };
+
+type Props<T extends React.ElementType> = React.PropsWithChildren<
+  TextProps<T>
+> &
+  Omit<React.ComponentPropsWithoutRef<T>, keyof TextProps<T>>;
 
 export const Text = <T extends React.ElementType = "span">({
   component,
+  color,
   children,
+  ...restProps
 }: Props<T>): JSX.Element => {
   const Component = component || "span";
-  return <Component>{children}</Component>;
+  const style = color ? { style: { color } } : {};
+  return (
+    <Component {...restProps} {...style}>
+      {children}
+    </Component>
+  );
 };

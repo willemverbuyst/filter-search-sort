@@ -18,9 +18,16 @@ function App(): JSX.Element {
       className="m-3 justify-content-center"
     >
       <Row className="m-3" justify-content-center>
-        <Text component="h1">Try out advanced React</Text>
+        <Text component="h1" color="white">
+          Advanced React
+        </Text>
       </Row>
-      <Row className="m-3 justify-content-center">
+      <Row className="m-2" justify-content-center>
+        <Text component="em" color="white">
+          pholymorphic components - hooks - generic ts functions
+        </Text>
+      </Row>
+      <Row className="m-4 justify-content-center">
         <ButtonGroup style={{ width: "20rem" }}>
           <ToggleButton
             id="tbg-btn-1"
