@@ -23,7 +23,12 @@ function App(): JSX.Element {
         </Text>
       </Row>
       <Row className="m-2" justify-content-center>
-        <Text component="em" color="white">
+        <Text
+          component="em"
+          style={{
+            fontSize: "1.3rem",
+          }}
+        >
           pholymorphic components - hooks - generic ts functions
         </Text>
       </Row>
