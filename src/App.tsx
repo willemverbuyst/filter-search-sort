@@ -3,14 +3,15 @@ import { ButtonGroup, Container, Row, ToggleButton } from "react-bootstrap";
 
 import {
   BookRenderer,
+  HookRenderer,
   PeopleRenderer,
   SearchSortAndFilter,
 } from "./components";
 import { Text } from "./components/Text";
-import { books, persons } from "./dummyData";
+import { books, hooks, persons } from "./dummyData";
 
 function App(): JSX.Element {
-  const [display, setDiplay] = useState<"books" | "people">("books");
+  const [display, setDiplay] = useState<"books" | "people" | "hooks">("books");
 
   return (
     <Container
@@ -54,6 +55,16 @@ function App(): JSX.Element {
           >
             people
           </ToggleButton>
+          <ToggleButton
+            id="tbg-btn-3"
+            value="hooks"
+            type="radio"
+            variant="outline-primary"
+            checked={display === "hooks"}
+            onChange={(): void => setDiplay("hooks")}
+          >
+            hooks
+          </ToggleButton>
         </ButtonGroup>
       </Row>
 
@@ -69,7 +80,7 @@ function App(): JSX.Element {
         >
           {(book): JSX.Element => <BookRenderer {...book} key={book._id} />}
         </SearchSortAndFilter>
-      ) : (
+      ) : display === "people" ? (
         <SearchSortAndFilter
           dataSource={persons}
           searchProperties={["firstName", "surname"]}
@@ -82,6 +93,18 @@ function App(): JSX.Element {
           {(person): JSX.Element => (
             <PeopleRenderer {...person} key={person._id} />
           )}
+        </SearchSortAndFilter>
+      ) : (
+        <SearchSortAndFilter
+          dataSource={hooks}
+          searchProperties={["name"]}
+          filterKeys={[]}
+          sortKeys={["name", "custom"]}
+          initialSortProperty={{ property: "name", isDescending: true }}
+          initialFilterProperties={[]}
+          initialSearchQuery=""
+        >
+          {(hook): JSX.Element => <HookRenderer {...hook} key={hook.name} />}
         </SearchSortAndFilter>
       )}
     </Container>
