@@ -4,7 +4,8 @@ import { Hook } from "../../interfaces";
 import styles from "../../styles/card.module.css";
 
 export function HookRenderer(props: Hook): JSX.Element {
-  const { name, custom } = props;
+  const { name, custom, component } = props;
+  const Component = component;
 
   return (
     <Card
@@ -13,9 +14,9 @@ export function HookRenderer(props: Hook): JSX.Element {
     >
       <Card.Header>{name}</Card.Header>
       <Card.Body>
-        <Card.Text>some text</Card.Text>
+        <Component />
       </Card.Body>
-      <Card.Footer>#id</Card.Footer>
+      <Card.Footer>{`custom hook: ${custom}`}</Card.Footer>
     </Card>
   );
 }
