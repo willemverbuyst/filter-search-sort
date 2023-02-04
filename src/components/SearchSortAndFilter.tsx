@@ -10,6 +10,7 @@ import { Sorters } from "./Sorters";
 interface Props<T extends Record<PropertyKey, any>> {
   dataSource: Array<T>;
   filterKeys: Array<keyof T>;
+  sortKeys: Array<keyof T>;
   searchProperties: Array<keyof T>;
   initialSortProperty: Sorter<T>;
   initialSearchQuery: string;
@@ -28,6 +29,7 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
   const {
     dataSource,
     filterKeys,
+    sortKeys,
     initialFilterProperties,
     initialSearchQuery,
     initialSortProperty,
@@ -58,7 +60,7 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
         )}
       />
       <Sorters
-        dataSource={dataSource}
+        sortKeys={sortKeys}
         setSortProperty={(sortProperty): void => {
           setSearchSortAndFilterState({
             ...searchSortAndFilterState,

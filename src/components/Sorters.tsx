@@ -4,15 +4,14 @@ import { Form, Row } from "react-bootstrap";
 import { Sorter } from "../interfaces";
 
 interface Props<T extends Record<PropertyKey, any>> {
-  dataSource: Array<T>;
+  sortKeys: Array<keyof T>;
   setSortProperty(sortProperty: Sorter<T>): void;
 }
 
 export function Sorters<T extends Record<PropertyKey, any>>(
   props: Props<T>
 ): JSX.Element {
-  const { dataSource, setSortProperty } = props;
-  const object = dataSource.length ? dataSource[0] : {};
+  const { setSortProperty, sortKeys } = props;
 
   return (
     <Row className="m-3 justify-content-center">
@@ -31,16 +30,18 @@ export function Sorters<T extends Record<PropertyKey, any>>(
             }
           }}
         >
-          {Object.keys(object).map((key) => (
-            <React.Fragment key={key}>
-              <option key={`${key}-true`} value={`${key}-true`}>
-                {key} descending
-              </option>
-              <option key={`${key}-false`} value={`${key}-false`}>
-                {key} ascending
-              </option>
-            </React.Fragment>
-          ))}
+          {sortKeys
+            .map((k) => String(k))
+            .map((key) => (
+              <React.Fragment key={key}>
+                <option key={`${key}-true`} value={`${key}-true`}>
+                  {key} descending
+                </option>
+                <option key={`${key}-false`} value={`${key}-false`}>
+                  {key} ascending
+                </option>
+              </React.Fragment>
+            ))}
         </Form.Select>
       </Form>
     </Row>

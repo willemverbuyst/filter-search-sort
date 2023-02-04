@@ -62,6 +62,7 @@ function App(): JSX.Element {
           dataSource={books}
           searchProperties={["title", "author"]}
           filterKeys={["pages", "inPrint"]}
+          sortKeys={["author", "title", "pages"]}
           initialSortProperty={{ property: "title", isDescending: true }}
           initialFilterProperties={[]}
           initialSearchQuery=""
@@ -73,6 +74,7 @@ function App(): JSX.Element {
           dataSource={persons}
           searchProperties={["firstName", "surname"]}
           filterKeys={["married", "eyeColor", "age"]}
+          sortKeys={[]}
           initialSortProperty={{ property: "_id", isDescending: true }}
           initialFilterProperties={[]}
           initialSearchQuery=""
