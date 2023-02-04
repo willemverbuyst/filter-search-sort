@@ -34,11 +34,11 @@ export function Sorters<T extends Record<PropertyKey, any>>(
             .map((k) => String(k))
             .map((key) => (
               <React.Fragment key={key}>
-                <option key={`${key}-true`} value={`${key}-true`}>
-                  {key} descending
-                </option>
                 <option key={`${key}-false`} value={`${key}-false`}>
                   {key} ascending
+                </option>
+                <option key={`${key}-true`} value={`${key}-true`}>
+                  {key} descending
                 </option>
               </React.Fragment>
             ))}
