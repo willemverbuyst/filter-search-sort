@@ -1,8 +1,8 @@
 import React from "react";
 
-import { PolymorphicRef, Props, TextComponent, TextProps } from "./types";
+import { PolymorphicRef, Props, TextProps } from "./types";
 
-export const Text: TextComponent = React.forwardRef(function Text<
+export const Text = React.forwardRef(function Text<
   T extends React.ElementType = "span",
 >(
   { component, color, children, style, ...restProps }: Props<T, TextProps>,

@@ -34,4 +34,4 @@ export type PolymorphicComponentPropWithRef<
 
 export type TextComponent = <T extends React.ElementType>(
   props: PolymorphicComponentPropWithRef<T, TextProps>,
-) => React.ReactElement | null;
+) => JSX.Element | null;
