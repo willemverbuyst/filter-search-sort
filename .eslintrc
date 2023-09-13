@@ -48,6 +48,7 @@
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "no-console": "error"
+    "no-console": "error",
+    "comma-dangle": "off"
   }
 }
