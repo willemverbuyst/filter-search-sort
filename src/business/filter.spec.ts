@@ -26,7 +26,7 @@ describe("genericFilter", () => {
         { property: "bar", isTruthySelected: true },
         { property: "quux", isTruthySelected: true },
         { property: "quuz", isTruthySelected: false },
-      ])
+      ]),
     ).toBe(true);
   });
 
@@ -44,7 +44,7 @@ describe("genericFilter", () => {
         { property: "bar", isTruthySelected: true },
         { property: "quux", isTruthySelected: true },
         { property: "quuz", isTruthySelected: true },
-      ])
+      ]),
     ).toBe(false);
   });
 });

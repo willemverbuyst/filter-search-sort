@@ -10,7 +10,7 @@ export const books: Array<Book> = [
     inPrint: true,
     translated: false,
     createdAt: new Date(
-      "Thu Jul 21 2022 03:31:53 GMT+0200 (Central European Summer Time)"
+      "Thu Jul 21 2022 03:31:53 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -21,7 +21,7 @@ export const books: Array<Book> = [
     inPrint: false,
     translated: false,
     createdAt: new Date(
-      "Mon Feb 13 1995 14:24:29 GMT+0100 (Central European Standard Time)"
+      "Mon Feb 13 1995 14:24:29 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -32,7 +32,7 @@ export const books: Array<Book> = [
     inPrint: false,
     translated: false,
     createdAt: new Date(
-      "Wed Nov 09 2005 23:31:19 GMT+0100 (Central European Standard Time)"
+      "Wed Nov 09 2005 23:31:19 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -44,7 +44,7 @@ export const books: Array<Book> = [
     inPrint: false,
     translated: false,
     createdAt: new Date(
-      "Fri Jan 31 2003 05:45:56 GMT+0100 (Central European Standard Time)"
+      "Fri Jan 31 2003 05:45:56 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -55,7 +55,7 @@ export const books: Array<Book> = [
     inPrint: true,
     translated: false,
     createdAt: new Date(
-      "Sat Oct 03 2015 00:32:31 GMT+0200 (Central European Summer Time)"
+      "Sat Oct 03 2015 00:32:31 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -66,7 +66,7 @@ export const books: Array<Book> = [
     inPrint: false,
     translated: true,
     createdAt: new Date(
-      "Sat Jan 10 1970 21:29:25 GMT+0100 (Central European Standard Time)"
+      "Sat Jan 10 1970 21:29:25 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -78,7 +78,7 @@ export const books: Array<Book> = [
     inPrint: true,
     translated: true,
     createdAt: new Date(
-      "Mon Jul 16 1984 13:17:34 GMT+0200 (Central European Summer Time)"
+      "Mon Jul 16 1984 13:17:34 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -90,7 +90,7 @@ export const books: Array<Book> = [
     inPrint: false,
     translated: false,
     createdAt: new Date(
-      "Sat Oct 01 2011 02:51:26 GMT+0200 (Central European Summer Time)"
+      "Sat Oct 01 2011 02:51:26 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -101,7 +101,7 @@ export const books: Array<Book> = [
     inPrint: false,
     translated: false,
     createdAt: new Date(
-      "Sat Feb 21 1976 16:14:37 GMT+0100 (Central European Standard Time)"
+      "Sat Feb 21 1976 16:14:37 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -112,7 +112,7 @@ export const books: Array<Book> = [
     inPrint: true,
     translated: true,
     createdAt: new Date(
-      "Wed Dec 24 2014 08:17:38 GMT+0100 (Central European Standard Time)"
+      "Wed Dec 24 2014 08:17:38 GMT+0100 (Central European Standard Time)",
     ),
   },
 ];

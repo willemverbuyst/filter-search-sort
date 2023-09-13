@@ -24,7 +24,7 @@ export function genericSearch<T>(
   object: T,
   properties: Array<keyof T>,
   query: string,
-  shouldBeCaseSensitive: boolean = false
+  shouldBeCaseSensitive: boolean = false,
 ): boolean {
   if (query === "") {
     return true;

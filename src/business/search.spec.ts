@@ -8,7 +8,7 @@ describe("genericSearch", () => {
     const shouldBeCaseSensitive = false;
 
     expect(
-      genericSearch(object, properties, query, shouldBeCaseSensitive)
+      genericSearch(object, properties, query, shouldBeCaseSensitive),
     ).toBe(true);
   });
 
@@ -19,7 +19,7 @@ describe("genericSearch", () => {
     const shouldBeCaseSensitive = false;
 
     expect(
-      genericSearch(object, properties, query, shouldBeCaseSensitive)
+      genericSearch(object, properties, query, shouldBeCaseSensitive),
     ).toBe(false);
   });
 
@@ -31,10 +31,10 @@ describe("genericSearch", () => {
     const shouldBeCaseSensitiveFalse = false;
 
     expect(
-      genericSearch(object, properties, query, shouldBeCaseSensitiveTrue)
+      genericSearch(object, properties, query, shouldBeCaseSensitiveTrue),
     ).toBe(false);
     expect(
-      genericSearch(object, properties, query, shouldBeCaseSensitiveFalse)
+      genericSearch(object, properties, query, shouldBeCaseSensitiveFalse),
     ).toBe(true);
     expect(genericSearch(object, properties, query)).toBe(true);
   });
@@ -46,7 +46,7 @@ describe("genericSearch", () => {
     const shouldBeCaseSensitive = true;
 
     expect(
-      genericSearch(object, properties, query, shouldBeCaseSensitive)
+      genericSearch(object, properties, query, shouldBeCaseSensitive),
     ).toBe(true);
   });
 
@@ -57,7 +57,7 @@ describe("genericSearch", () => {
     const shouldBeCaseSensitive = true;
 
     expect(
-      genericSearch(object, properties, query, shouldBeCaseSensitive)
+      genericSearch(object, properties, query, shouldBeCaseSensitive),
     ).toBe(true);
   });
 

@@ -9,7 +9,7 @@ interface Props<T extends Record<PropertyKey, any>> {
 }
 
 export function Sorters<T extends Record<PropertyKey, any>>(
-  props: Props<T>
+  props: Props<T>,
 ): JSX.Element {
   const { setSortProperty, sortKeys } = props;
 

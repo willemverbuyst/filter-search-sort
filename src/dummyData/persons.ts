@@ -12,7 +12,7 @@ export const persons: Array<Person> = [
     email: "velmasalazar@avit.com",
     married: false,
     birthDate: new Date(
-      "Thu Aug 18 2022 21:47:47 GMT+0200 (Central European Summer Time)"
+      "Thu Aug 18 2022 21:47:47 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -26,7 +26,7 @@ export const persons: Array<Person> = [
     email: "robertawelch@bluegrain.com",
     married: true,
     birthDate: new Date(
-      "Sat Nov 29 1997 15:07:06 GMT+0100 (Central European Standard Time)"
+      "Sat Nov 29 1997 15:07:06 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -40,7 +40,7 @@ export const persons: Array<Person> = [
     email: "sabrinanielsen@silodyne.com",
     married: true,
     birthDate: new Date(
-      "Mon Nov 01 1982 10:43:00 GMT+0100 (Central European Standard Time)"
+      "Mon Nov 01 1982 10:43:00 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -54,7 +54,7 @@ export const persons: Array<Person> = [
     email: "madeleineolson@sybixtex.com",
     married: false,
     birthDate: new Date(
-      "Sat Sep 23 1995 05:30:11 GMT+0200 (Central European Summer Time)"
+      "Sat Sep 23 1995 05:30:11 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -68,7 +68,7 @@ export const persons: Array<Person> = [
     email: "normanbush@aeora.com",
     married: true,
     birthDate: new Date(
-      "Tue Oct 04 2011 10:08:38 GMT+0200 (Central European Summer Time)"
+      "Tue Oct 04 2011 10:08:38 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -82,7 +82,7 @@ export const persons: Array<Person> = [
     email: "mcdonaldmckinney@biotica.com",
     married: false,
     birthDate: new Date(
-      "Sat Nov 20 1976 13:58:37 GMT+0100 (Central European Standard Time)"
+      "Sat Nov 20 1976 13:58:37 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -96,7 +96,7 @@ export const persons: Array<Person> = [
     email: "bridgetbradshaw@zaj.com",
     married: false,
     birthDate: new Date(
-      "Tue Jun 04 2002 00:28:31 GMT+0200 (Central European Summer Time)"
+      "Tue Jun 04 2002 00:28:31 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -110,7 +110,7 @@ export const persons: Array<Person> = [
     email: "joycechaney@bizmatic.com",
     married: true,
     birthDate: new Date(
-      "Sun May 23 1982 02:07:21 GMT+0200 (Central European Summer Time)"
+      "Sun May 23 1982 02:07:21 GMT+0200 (Central European Summer Time)",
     ),
   },
   {
@@ -124,7 +124,7 @@ export const persons: Array<Person> = [
     email: "griffinhumphrey@wrapture.com",
     married: true,
     birthDate: new Date(
-      "Tue Nov 02 2021 09:07:11 GMT+0100 (Central European Standard Time)"
+      "Tue Nov 02 2021 09:07:11 GMT+0100 (Central European Standard Time)",
     ),
   },
   {
@@ -138,7 +138,7 @@ export const persons: Array<Person> = [
     email: "diannehenderson@savvy.com",
     married: false,
     birthDate: new Date(
-      "Sat Jul 03 1971 18:28:39 GMT+0100 (Central European Standard Time)"
+      "Sat Jul 03 1971 18:28:39 GMT+0100 (Central European Standard Time)",
     ),
   },
 ];

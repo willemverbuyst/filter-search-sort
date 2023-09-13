@@ -10,7 +10,7 @@ interface Props<T extends Record<PropertyKey, any>> {
 }
 
 export function Filters<T extends Record<PropertyKey, any>>(
-  props: Props<T>
+  props: Props<T>,
 ): JSX.Element {
   const { filterKeys, filterProperties, setFilterProperties } = props;
 
@@ -18,23 +18,23 @@ export function Filters<T extends Record<PropertyKey, any>>(
     const propertyMatch = filterProperties.some(
       (filterProperty) =>
         filterProperty.property === property.property &&
-        filterProperty.isTruthySelected
+        filterProperty.isTruthySelected,
     );
     const fullMatch = filterProperties.some(
       (bookFilterProperty) =>
         bookFilterProperty.property === property.property &&
-        bookFilterProperty.isTruthySelected === property.isTruthySelected
+        bookFilterProperty.isTruthySelected === property.isTruthySelected,
     );
     if (fullMatch) {
       setFilterProperties([
         ...filterProperties.filter(
-          (filterProperty) => property.property !== filterProperty.property
+          (filterProperty) => property.property !== filterProperty.property,
         ),
       ]);
     } else if (propertyMatch) {
       setFilterProperties([
         ...filterProperties.filter(
-          (filterProperty) => property.property !== filterProperty.property
+          (filterProperty) => property.property !== filterProperty.property,
         ),
         property,
       ]);
@@ -60,7 +60,7 @@ export function Filters<T extends Record<PropertyKey, any>>(
                   }
                   checked={filterProperties.some(
                     ({ property, isTruthySelected }) =>
-                      property === key && isTruthySelected
+                      property === key && isTruthySelected,
                   )}
                   label={key}
                 />
@@ -78,7 +78,7 @@ export function Filters<T extends Record<PropertyKey, any>>(
                   }
                   checked={filterProperties.some(
                     ({ property, isTruthySelected }) =>
-                      property === key && !isTruthySelected
+                      property === key && !isTruthySelected,
                   )}
                   label={`not ${key}`}
                 />

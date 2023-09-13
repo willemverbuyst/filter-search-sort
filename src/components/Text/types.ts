@@ -23,15 +23,15 @@ export type Props<T extends React.ElementType, U> = PolymorphicComponentProp<
 
 export type PolymorphicComponentProp<
   T extends React.ElementType,
-  U = {}
+  U = {},
 > = React.PropsWithChildren<PropsWithComponent<T>> &
   Omit<React.ComponentPropsWithoutRef<T>, PropsToOmit<T, U>>;
 
 export type PolymorphicComponentPropWithRef<
   T extends React.ElementType,
-  U
+  U,
 > = PolymorphicComponentProp<T, U> & { ref?: PolymorphicRef<T> };
 
 export type TextComponent = <T extends React.ElementType>(
-  props: PolymorphicComponentPropWithRef<T, TextProps>
+  props: PolymorphicComponentPropWithRef<T, TextProps>,
 ) => React.ReactElement | null;

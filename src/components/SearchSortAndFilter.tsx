@@ -24,7 +24,7 @@ interface SearchSortAndFilterState<T extends Record<PropertyKey, any>> {
 }
 
 export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
-  props: PropsWithChildrenFunction<Props<T>, T>
+  props: PropsWithChildrenFunction<Props<T>, T>,
 ): JSX.Element {
   const {
     dataSource,
@@ -56,7 +56,7 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
               ...prev,
               searchQuery,
             })),
-          []
+          [],
         )}
       />
       <Sorters
