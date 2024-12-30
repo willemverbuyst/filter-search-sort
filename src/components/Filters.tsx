@@ -1,6 +1,5 @@
 import React from "react";
 import { Form, Stack } from "react-bootstrap";
-
 import { Filter } from "../interfaces/Filter";
 
 interface Props<T extends Record<PropertyKey, any>> {
@@ -25,22 +24,25 @@ export function Filters<T extends Record<PropertyKey, any>>(
         bookFilterProperty.property === property.property &&
         bookFilterProperty.isTruthySelected === property.isTruthySelected,
     );
-    if (fullMatch) {
-      setFilterProperties([
-        ...filterProperties.filter(
+
+    let newFilterProperties: Filter<T>[] = [];
+    switch (true) {
+      case fullMatch:
+        newFilterProperties = filterProperties.filter(
           (filterProperty) => property.property !== filterProperty.property,
-        ),
-      ]);
-    } else if (propertyMatch) {
-      setFilterProperties([
-        ...filterProperties.filter(
+        );
+        break;
+      case propertyMatch:
+        newFilterProperties = filterProperties.filter(
           (filterProperty) => property.property !== filterProperty.property,
-        ),
-        property,
-      ]);
-    } else {
-      setFilterProperties([...filterProperties, property]);
+        );
+        newFilterProperties.push(property);
+        break;
+      default:
+        newFilterProperties = [...filterProperties, property];
     }
+
+    setFilterProperties(newFilterProperties);
   }
 
   return (
