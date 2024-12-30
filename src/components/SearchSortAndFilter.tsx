@@ -1,8 +1,11 @@
 import { useCallback, useState } from "react";
 import { Row } from "react-bootstrap";
-
-import { genericFilter, genericSearch, genericSort } from "../business";
-import { Filter, PropsWithChildrenFunction, Sorter } from "../interfaces";
+import { genericFilter } from "../business/filter";
+import { genericSearch } from "../business/search";
+import { genericSort } from "../business/sort";
+import { Filter } from "../interfaces/Filter";
+import { PropsWithChildrenFunction } from "../interfaces/PropsWithChildrenFunction";
+import { Sorter } from "../interfaces/Sorter";
 import { Filters } from "./Filters";
 import { SearchInput } from "./SearchInput";
 import { Sorters } from "./Sorters";

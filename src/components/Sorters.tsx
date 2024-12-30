@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Row } from "react-bootstrap";
-
-import { Sorter } from "../interfaces";
+import { Sorter } from "../interfaces/Sorter";
 
 interface Props<T extends Record<PropertyKey, any>> {
   sortKeys: Array<keyof T>;

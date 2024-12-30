@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { ButtonGroup, Container, Row, ToggleButton } from "react-bootstrap";
-
-import {
-  BookRenderer,
-  PeopleRenderer,
-  SearchSortAndFilter,
-} from "./components";
-import { Text } from "./components/Text";
-import { books, persons } from "./dummyData";
+import { BookRenderer } from "./components/Renderers/BookRenderer";
+import { PeopleRenderer } from "./components/Renderers/PeopleRenderer";
+import { SearchSortAndFilter } from "./components/SearchSortAndFilter";
+import { Text } from "./components/UI/Text";
+import { books } from "./dummyData/books";
+import { persons } from "./dummyData/persons";
 
 function App(): JSX.Element {
   const [display, setDisplay] = useState<"books" | "people">("books");
