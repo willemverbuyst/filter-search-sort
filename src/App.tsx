@@ -3,11 +3,12 @@ import { ButtonGroup, Container, Row, ToggleButton } from "react-bootstrap";
 import { BookRenderer } from "./components/Renderers/BookRenderer";
 import { PeopleRenderer } from "./components/Renderers/PeopleRenderer";
 import { SearchSortAndFilter } from "./components/SearchSortAndFilter";
+import { Items } from "./constants";
 import { books } from "./dummyData/books";
 import { persons } from "./dummyData/persons";
 
 function App(): JSX.Element {
-  const [display, setDisplay] = useState<"books" | "people">("books");
+  const [display, setDisplay] = useState<keyof typeof Items>(Items.BOOKS);
 
   return (
     <Container
@@ -29,8 +30,8 @@ function App(): JSX.Element {
             value="books"
             type="radio"
             variant="outline-primary"
-            checked={display === "books"}
-            onChange={(): void => setDisplay("books")}
+            checked={display === Items.BOOKS}
+            onChange={(): void => setDisplay(Items.BOOKS)}
           >
             books
           </ToggleButton>
@@ -39,15 +40,15 @@ function App(): JSX.Element {
             value="people"
             type="radio"
             variant="outline-primary"
-            checked={display === "people"}
-            onChange={(): void => setDisplay("people")}
+            checked={display === Items.PEOPLE}
+            onChange={(): void => setDisplay(Items.PEOPLE)}
           >
             people
           </ToggleButton>
         </ButtonGroup>
       </Row>
 
-      {display === "books" ? (
+      {display === Items.BOOKS ? (
         <SearchSortAndFilter
           dataSource={books}
           searchProperties={["title", "author"]}
