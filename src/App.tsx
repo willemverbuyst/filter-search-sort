@@ -3,7 +3,6 @@ import { ButtonGroup, Container, Row, ToggleButton } from "react-bootstrap";
 import { BookRenderer } from "./components/Renderers/BookRenderer";
 import { PeopleRenderer } from "./components/Renderers/PeopleRenderer";
 import { SearchSortAndFilter } from "./components/SearchSortAndFilter";
-import { Text } from "./components/UI/Text";
 import { books } from "./dummyData/books";
 import { persons } from "./dummyData/persons";
 
@@ -16,19 +15,12 @@ function App(): JSX.Element {
       className="m-3 justify-content-center"
     >
       <Row className="m-3" justify-content-center>
-        <Text component="h1" color="white">
-          Advanced React
-        </Text>
+        <h1 style={{ color: "white" }}>Advanced React</h1>
       </Row>
       <Row className="m-2" justify-content-center>
-        <Text
-          component="em"
-          style={{
-            fontSize: "1.3rem",
-          }}
-        >
+        <em style={{ fontSize: "1.3rem" }}>
           generic ts filter, search and sort functions
-        </Text>
+        </em>
       </Row>
       <Row className="m-4 justify-content-center">
         <ButtonGroup style={{ width: "20rem" }}>
