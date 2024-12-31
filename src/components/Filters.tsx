@@ -20,9 +20,9 @@ export function Filters<T extends Record<PropertyKey, any>>(
         filterProperty.isTruthySelected,
     );
     const fullMatch = filterProperties.some(
-      (bookFilterProperty) =>
-        bookFilterProperty.property === property.property &&
-        bookFilterProperty.isTruthySelected === property.isTruthySelected,
+      (filterProperty) =>
+        filterProperty.property === property.property &&
+        filterProperty.isTruthySelected === property.isTruthySelected,
     );
 
     let newFilterProperties: Filter<T>[] = [];
