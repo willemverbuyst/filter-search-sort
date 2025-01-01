@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { ButtonGroup, Row, ToggleButton } from "react-bootstrap";
 import { BookRenderer } from "./components/Renderers/BookRenderer";
 import { PeopleRenderer } from "./components/Renderers/PeopleRenderer";
 import { SearchSortAndFilter } from "./components/SearchSortAndFilter";
+import { Button } from "./components/ui/button";
 import { Items } from "./constants";
 import { books } from "./dummyData/books";
 import { persons } from "./dummyData/persons";
+import { cn } from "./lib/utils";
 
 function App(): JSX.Element {
   const [display, setDisplay] = useState<keyof typeof Items>(Items.BOOKS);
@@ -13,37 +14,35 @@ function App(): JSX.Element {
   return (
     <section className="w-full flex flex-col items-center p-10">
       <header className="flex flex-col items-center">
-        <h1 className="text-4xl font-bold">Advanced React</h1>
-        <em className="text-gray-700">
+        <h1 className="text-5xl font-bold">Filter, Search & Sort</h1>
+        <em className="text-gray-700 py-2">
           generic ts filter, search and sort functions
         </em>
       </header>
 
       <main className="flex flex-col items-center">
-        <Row className="m-4 justify-content-center">
-          <ButtonGroup style={{ width: "20rem" }}>
-            <ToggleButton
-              id="tbg-btn-1"
-              value="books"
-              type="radio"
-              variant="outline-primary"
-              checked={display === Items.BOOKS}
-              onChange={(): void => setDisplay(Items.BOOKS)}
-            >
-              books
-            </ToggleButton>
-            <ToggleButton
-              id="tbg-btn-2"
-              value="people"
-              type="radio"
-              variant="outline-primary"
-              checked={display === Items.PEOPLE}
-              onChange={(): void => setDisplay(Items.PEOPLE)}
-            >
-              people
-            </ToggleButton>
-          </ButtonGroup>
-        </Row>
+        <section className="flex gap-2 py-4">
+          <Button
+            variant="outline"
+            className={cn(
+              "border-primary",
+              display === Items.BOOKS && "bg-primary text-white",
+            )}
+            onClick={() => setDisplay(Items.BOOKS)}
+          >
+            {Items.BOOKS}
+          </Button>
+          <Button
+            variant="outline"
+            className={cn(
+              "border-primary",
+              display === Items.PEOPLE && "bg-primary text-white",
+            )}
+            onClick={() => setDisplay(Items.PEOPLE)}
+          >
+            {Items.PEOPLE}
+          </Button>
+        </section>
 
         {display === Items.BOOKS ? (
           <SearchSortAndFilter
