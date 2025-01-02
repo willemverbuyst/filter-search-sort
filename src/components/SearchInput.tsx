@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Form, Row } from "react-bootstrap";
 
 import { useDebounce } from "../hooks/useDebounce";
+import { Input } from "./ui/input";
 
 interface Props {
   searchQuery: string;
@@ -18,16 +18,12 @@ export function SearchInput(props: Props): JSX.Element {
   }, [debouncedQuery, setSearchQuery]);
 
   return (
-    <Row className="m-3 justify-content-center">
-      <Form style={{ width: "20rem" }}>
-        <Form.Control
-          value={query}
-          id="search"
-          placeholder="Search..."
-          aria-label="Search"
-          onChange={(event): void => setQuery(event.target.value)}
-        />
-      </Form>
-    </Row>
+    <Input
+      value={query}
+      id="search"
+      placeholder="Search..."
+      aria-label="Search"
+      onChange={(event): void => setQuery(event.target.value)}
+    />
   );
 }

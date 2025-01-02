@@ -1,5 +1,5 @@
-import React from "react";
-import { Form, Stack } from "react-bootstrap";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { Filter } from "../interfaces/Filter";
 
 interface Props<T extends Record<PropertyKey, any>> {
@@ -46,48 +46,47 @@ export function Filters<T extends Record<PropertyKey, any>>(
   }
 
   return (
-    <Stack className="justify-content-center" direction="horizontal">
+    <section className="flex flex-col items-center gap-2 py-4">
       {filterKeys
         .filter((k): k is string => !!k)
         .map((key) => {
           return (
-            <React.Fragment key={key}>
-              <Form.Group key={`${key}-true`} className="m-3" controlId={key}>
-                <Form.Check
-                  type="checkbox"
+            <section key={key} className="flex gap-2">
+              <div className="flex items-center space-x-2">
+                <Label htmlFor={`${key}-true`}>{key}</Label>
+                <Checkbox
                   id={`${key}-true`}
-                  value={key}
-                  onChange={(): void =>
-                    onChangeFilter({ property: key, isTruthySelected: true })
-                  }
                   checked={filterProperties.some(
                     ({ property, isTruthySelected }) =>
                       property === key && isTruthySelected,
                   )}
-                  label={key}
-                />
-              </Form.Group>
-              <Form.Group key={`${key}-false`} className="m-3" controlId={key}>
-                <Form.Check
-                  type="checkbox"
-                  value={key}
-                  id={`${key}-false`}
-                  onChange={(): void =>
+                  onCheckedChange={() => {
                     onChangeFilter({
-                      property: key as any,
-                      isTruthySelected: false,
-                    })
-                  }
+                      property: key,
+                      isTruthySelected: true,
+                    });
+                  }}
+                />
+              </div>
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id={`${key}-false`}
                   checked={filterProperties.some(
                     ({ property, isTruthySelected }) =>
                       property === key && !isTruthySelected,
                   )}
-                  label={`not ${key}`}
+                  onCheckedChange={() => {
+                    onChangeFilter({
+                      property: key,
+                      isTruthySelected: false,
+                    });
+                  }}
                 />
-              </Form.Group>
-            </React.Fragment>
+                <Label htmlFor={`${key}-false`}>not {key}</Label>
+              </div>
+            </section>
           );
         })}
-    </Stack>
+    </section>
   );
 }
