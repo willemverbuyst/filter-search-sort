@@ -5,34 +5,33 @@
     "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
-    }
+      "jsx": true,
+    },
   },
   "settings": {
     "react": {
-      "version": "detect"
+      "version": "detect",
     },
     "import/resolver": {
       "node": {
         "paths": ["src"],
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
-    }
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
   },
   "globals": {
-    "JSX": "readonly"
+    "JSX": "readonly",
   },
   "env": {
     "browser": true,
     "amd": true,
     "node": true,
-    "jest/globals": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
   ],
   "plugins": ["@typescript-eslint", "jest", "simple-import-sort", "prettier"],
   "rules": {
@@ -42,13 +41,13 @@
       "error",
       {},
       {
-        "usePrettierrc": true
-      }
+        "usePrettierrc": true,
+      },
     ],
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "no-console": "error",
-    "comma-dangle": "off"
-  }
+    "comma-dangle": "off",
+  },
 }

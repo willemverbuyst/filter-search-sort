@@ -1,3 +1,4 @@
+import { describe, expect, test } from "vitest";
 import { genericSort } from "./sort";
 
 const testObject1 = {
@@ -12,7 +13,7 @@ const testObject2 = {
 };
 
 describe("genericSort", () => {
-  it("should return 1", () => {
+  test("should return 1", () => {
     expect(
       genericSort(testObject1, testObject2, {
         property: "foo",
@@ -27,7 +28,7 @@ describe("genericSort", () => {
     ).toBe(1);
   });
 
-  it("should return -1", () => {
+  test("should return -1", () => {
     expect(
       genericSort(testObject1, testObject2, {
         property: "foo",
@@ -42,7 +43,7 @@ describe("genericSort", () => {
     ).toBe(-1);
   });
 
-  it("should return 0", () => {
+  test("should return 0", () => {
     expect(
       genericSort(testObject1, testObject2, {
         property: "quuz",

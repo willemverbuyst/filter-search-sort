@@ -1,7 +1,8 @@
+import { describe, expect, test } from "vitest";
 import { genericFilter } from "./filter";
 
 describe("genericFilter", () => {
-  it("should return true when filter properties is an empty array", () => {
+  test("should return true when filter properties is an empty array", () => {
     const testObject = {
       foo: 1,
       bar: "test",
@@ -12,7 +13,7 @@ describe("genericFilter", () => {
     expect(genericFilter(testObject, [])).toBe(true);
   });
 
-  it("should return true when all filter properties match", () => {
+  test("should return true when all filter properties match", () => {
     const testObject = {
       foo: 1,
       bar: "test",
@@ -30,7 +31,7 @@ describe("genericFilter", () => {
     ).toBe(true);
   });
 
-  it("should return false when one filter property does not match", () => {
+  test("should return false when one filter property does not match", () => {
     const testObject = {
       foo: 1,
       bar: "test",
