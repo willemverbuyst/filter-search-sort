@@ -1,5 +1,13 @@
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import React from "react";
-import { Form, Row } from "react-bootstrap";
 import { Sorter } from "../interfaces/Sorter";
 
 interface Props<T extends Record<PropertyKey, any>> {
@@ -13,36 +21,38 @@ export function Sorters<T extends Record<PropertyKey, any>>(
   const { setSortProperty, sortKeys } = props;
 
   return (
-    <Row className="m-3 justify-content-center">
-      <Form style={{ width: "20rem" }}>
-        <Form.Select
-          id="sorters"
-          placeholder="Sort..."
-          aria-label="Sort"
-          onChange={(event): void => {
-            const values = event.target.value.split("-");
-            if (values.length === 2) {
-              setSortProperty({
-                property: values[0],
-                isDescending: values[1] === "true",
-              });
-            }
-          }}
-        >
+    <Select
+      onValueChange={(value) => {
+        const [property, direction] = value.split("-");
+        setSortProperty({
+          property,
+          isDescending: direction === "desc",
+        });
+      }}
+    >
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Sort by..." />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
           {sortKeys
             .map((k) => String(k))
             .map((key) => (
               <React.Fragment key={key}>
-                <option key={`${key}-false`} value={`${key}-false`}>
-                  {key} ascending
-                </option>
-                <option key={`${key}-true`} value={`${key}-true`}>
-                  {key} descending
-                </option>
+                <SelectItem value={`${key}-asc`}>
+                  <span className="flex gap-2 items-center">
+                    <ArrowDown size={20} /> {key}
+                  </span>
+                </SelectItem>
+                <SelectItem value={`${key}-desc`}>
+                  <span className="flex gap-2 items-center">
+                    <ArrowUp size={20} /> {key}
+                  </span>
+                </SelectItem>
               </React.Fragment>
             ))}
-        </Form.Select>
-      </Form>
-    </Row>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 }

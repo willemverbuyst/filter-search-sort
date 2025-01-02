@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import { Row } from "react-bootstrap";
 import { genericFilter } from "../business/filter";
 import { genericSearch } from "../business/search";
 import { genericSort } from "../business/sort";
@@ -50,7 +49,7 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
     searchSortAndFilterState;
 
   return (
-    <Row className="m-3 justify-content-center align-self-start">
+    <section className="flex flex-col gap-4">
       <SearchInput
         searchQuery={initialSearchQuery}
         setSearchQuery={useCallback(
@@ -87,6 +86,6 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
           .sort((a, b) => genericSort(a, b, sortProperty))
           .filter((a) => genericFilter(a, filterProperties))
           .map((d) => children(d))}
-    </Row>
+    </section>
   );
 }
