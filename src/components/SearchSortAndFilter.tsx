@@ -49,43 +49,54 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
     searchSortAndFilterState;
 
   return (
-    <section className="flex flex-col gap-4">
-      <SearchInput
-        searchQuery={initialSearchQuery}
-        setSearchQuery={useCallback(
-          (searchQuery) =>
-            setSearchSortAndFilterState((prev) => ({
-              ...prev,
-              searchQuery,
-            })),
-          [],
-        )}
-      />
-      <Sorters
-        sortKeys={sortKeys}
-        setSortProperty={(sortProperty): void => {
-          setSearchSortAndFilterState({
-            ...searchSortAndFilterState,
-            sortProperty,
-          });
-        }}
-      />
-      <Filters
-        filterKeys={filterKeys}
-        filterProperties={filterProperties}
-        setFilterProperties={(filterProperties): void => {
-          setSearchSortAndFilterState({
-            ...searchSortAndFilterState,
-            filterProperties,
-          });
-        }}
-      />
-      {children &&
-        dataSource
-          .filter((a) => genericSearch(a, searchProperties, searchQuery, false))
-          .sort((a, b) => genericSort(a, b, sortProperty))
-          .filter((a) => genericFilter(a, filterProperties))
-          .map((d) => children(d))}
+    <section className="grid grid-rows-2 grid-flow-col gap-4 max-h-[80vh] overflow-y-auto">
+      <div className="col-span-4 flex flex-col gap-4">
+        <section className="bg-gray-400 p-4 rounded-lg">
+          <SearchInput
+            searchQuery={initialSearchQuery}
+            setSearchQuery={useCallback(
+              (searchQuery) =>
+                setSearchSortAndFilterState((prev) => ({
+                  ...prev,
+                  searchQuery,
+                })),
+              [],
+            )}
+          />
+        </section>
+
+        <div className="grid grid-cols-3 gap-4">
+          {children &&
+            dataSource
+              .filter((a) =>
+                genericSearch(a, searchProperties, searchQuery, false),
+              )
+              .sort((a, b) => genericSort(a, b, sortProperty))
+              .filter((a) => genericFilter(a, filterProperties))
+              .map((d) => children(d))}
+        </div>
+      </div>
+      <div className="col-span-1 row-span-2 p-4 flex flex-col gap-4 items-start bg-gray-400 rounded-lg">
+        <Sorters
+          sortKeys={sortKeys}
+          setSortProperty={(sortProperty): void => {
+            setSearchSortAndFilterState({
+              ...searchSortAndFilterState,
+              sortProperty,
+            });
+          }}
+        />
+        <Filters
+          filterKeys={filterKeys}
+          filterProperties={filterProperties}
+          setFilterProperties={(filterProperties): void => {
+            setSearchSortAndFilterState({
+              ...searchSortAndFilterState,
+              filterProperties,
+            });
+          }}
+        />
+      </div>
     </section>
   );
 }

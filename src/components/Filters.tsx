@@ -1,5 +1,6 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import React from "react";
 import { Filter } from "../interfaces/Filter";
 
 interface Props<T extends Record<PropertyKey, any>> {
@@ -46,14 +47,14 @@ export function Filters<T extends Record<PropertyKey, any>>(
   }
 
   return (
-    <section className="flex flex-col items-center gap-2 py-4">
+    <section className="flex flex-col gap-2 py-4">
+      <h2>Filter</h2>
       {filterKeys
         .filter((k): k is string => !!k)
         .map((key) => {
           return (
-            <section key={key} className="flex gap-2">
+            <React.Fragment key={key}>
               <div className="flex items-center space-x-2">
-                <Label htmlFor={`${key}-true`}>{key}</Label>
                 <Checkbox
                   id={`${key}-true`}
                   checked={filterProperties.some(
@@ -66,7 +67,9 @@ export function Filters<T extends Record<PropertyKey, any>>(
                       isTruthySelected: true,
                     });
                   }}
+                  className="bg-white"
                 />
+                <Label htmlFor={`${key}-true`}>{key}</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <Checkbox
@@ -81,10 +84,11 @@ export function Filters<T extends Record<PropertyKey, any>>(
                       isTruthySelected: false,
                     });
                   }}
+                  className="bg-white"
                 />
                 <Label htmlFor={`${key}-false`}>not {key}</Label>
               </div>
-            </section>
+            </React.Fragment>
           );
         })}
     </section>

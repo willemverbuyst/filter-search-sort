@@ -12,7 +12,7 @@ export function BookRenderer(props: Book): JSX.Element {
   const { _id, author, createdAt, pages, inPrint, title } = props;
 
   return (
-    <Card>
+    <Card className="w-[400px]">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
@@ -22,6 +22,7 @@ export function BookRenderer(props: Book): JSX.Element {
         <p>
           createdAt: <Moment date={createdAt} format="YYYY/MM/DD" />
         </p>
+        <p>in print: {inPrint.toString()}</p>
       </CardContent>
       <CardFooter>id: {_id}</CardFooter>
     </Card>

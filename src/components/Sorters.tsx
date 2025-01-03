@@ -30,7 +30,7 @@ export function Sorters<T extends Record<PropertyKey, any>>(
         });
       }}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[180px] bg-white">
         <SelectValue placeholder="Sort by..." />
       </SelectTrigger>
       <SelectContent>

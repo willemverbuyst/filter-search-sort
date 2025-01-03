@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { useDebounce } from "../hooks/useDebounce";
 import { Input } from "./ui/input";
 
@@ -19,6 +18,7 @@ export function SearchInput(props: Props): JSX.Element {
 
   return (
     <Input
+      className="bg-white"
       value={query}
       id="search"
       placeholder="Search..."

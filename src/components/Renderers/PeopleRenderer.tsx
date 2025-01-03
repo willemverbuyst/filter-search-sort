@@ -10,7 +10,7 @@ import { Person } from "../../interfaces/Person";
 export function PeopleRenderer(props: Person): JSX.Element {
   const { _id, firstName, age, eyeColor, surname, email } = props;
   return (
-    <Card>
+    <Card className="w-[400px]">
       <CardHeader>
         <CardTitle>
           {firstName} {surname}

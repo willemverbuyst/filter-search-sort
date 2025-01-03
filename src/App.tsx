@@ -12,7 +12,7 @@ function App(): JSX.Element {
   const [display, setDisplay] = useState<keyof typeof Items>(Items.BOOKS);
 
   return (
-    <section className="w-full flex flex-col items-center p-10">
+    <div className="w-full min-h-[100vh] flex flex-col items-center p-10 bg-gray-200">
       <header className="flex flex-col items-center">
         <h1 className="text-5xl font-bold">Filter, Search & Sort</h1>
         <em className="text-gray-700 py-2">
@@ -44,35 +44,37 @@ function App(): JSX.Element {
           </Button>
         </section>
 
-        {display === Items.BOOKS ? (
-          <SearchSortAndFilter
-            dataSource={books}
-            searchProperties={["title", "author"]}
-            filterKeys={["inPrint"]}
-            sortKeys={["author", "title", "pages"]}
-            initialSortProperty={{ property: "title", isDescending: true }}
-            initialFilterProperties={[]}
-            initialSearchQuery=""
-          >
-            {(book): JSX.Element => <BookRenderer {...book} key={book._id} />}
-          </SearchSortAndFilter>
-        ) : (
-          <SearchSortAndFilter
-            dataSource={persons}
-            searchProperties={["firstName", "surname"]}
-            filterKeys={["married", "eyeColor", "age"]}
-            sortKeys={["firstName", "surname", "age"]}
-            initialSortProperty={{ property: "_id", isDescending: true }}
-            initialFilterProperties={[]}
-            initialSearchQuery=""
-          >
-            {(person): JSX.Element => (
-              <PeopleRenderer {...person} key={person._id} />
-            )}
-          </SearchSortAndFilter>
-        )}
+        <section className="bg-gray-300 p-4 rounded-lg w-full">
+          {display === Items.BOOKS ? (
+            <SearchSortAndFilter
+              dataSource={books}
+              searchProperties={["title", "author"]}
+              filterKeys={["inPrint"]}
+              sortKeys={["author", "title", "pages"]}
+              initialSortProperty={{ property: "title", isDescending: true }}
+              initialFilterProperties={[]}
+              initialSearchQuery=""
+            >
+              {(book): JSX.Element => <BookRenderer {...book} key={book._id} />}
+            </SearchSortAndFilter>
+          ) : (
+            <SearchSortAndFilter
+              dataSource={persons}
+              searchProperties={["firstName", "surname"]}
+              filterKeys={["married", "eyeColor", "age"]}
+              sortKeys={["firstName", "surname", "age"]}
+              initialSortProperty={{ property: "_id", isDescending: true }}
+              initialFilterProperties={[]}
+              initialSearchQuery=""
+            >
+              {(person): JSX.Element => (
+                <PeopleRenderer {...person} key={person._id} />
+              )}
+            </SearchSortAndFilter>
+          )}
+        </section>
       </main>
-    </section>
+    </div>
   );
 }
 
