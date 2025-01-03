@@ -9,7 +9,7 @@ import { Filters } from "./Filters";
 import { SearchInput } from "./SearchInput";
 import { Sorters } from "./Sorters";
 
-interface Props<T extends Record<PropertyKey, any>> {
+interface Props<T> {
   dataSource: Array<T>;
   filterKeys: Array<keyof T>;
   sortKeys: Array<keyof T>;
@@ -19,13 +19,13 @@ interface Props<T extends Record<PropertyKey, any>> {
   initialFilterProperties: Array<Filter<T>>;
 }
 
-interface SearchSortAndFilterState<T extends Record<PropertyKey, any>> {
+interface SearchSortAndFilterState<T> {
   searchQuery: string;
   sortProperty: Sorter<T>;
   filterProperties: Array<Filter<T>>;
 }
 
-export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
+export function SearchSortAndFilter<T>(
   props: PropsWithChildrenFunction<Props<T>, T>,
 ): React.JSX.Element {
   const {
@@ -77,7 +77,7 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
         </div>
       </div>
       <div className="col-span-1 row-span-2 p-4 flex flex-col gap-4 items-start bg-gray-400 rounded-lg">
-        <Sorters
+        <Sorters<T>
           sortKeys={sortKeys}
           setSortProperty={(sortProperty): void => {
             setSearchSortAndFilterState({
@@ -86,7 +86,7 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
             });
           }}
         />
-        <Filters
+        <Filters<T>
           filterKeys={filterKeys}
           filterProperties={filterProperties}
           setFilterProperties={(filterProperties): void => {

@@ -10,20 +10,21 @@ import { ArrowDown, ArrowUp } from "lucide-react";
 import React from "react";
 import { Sorter } from "../interfaces/Sorter";
 
-interface Props<T extends Record<PropertyKey, unknown>> {
+interface Props<T> {
   sortKeys: Array<keyof T>;
   setSortProperty(sortProperty: Sorter<T>): void;
 }
 
-export function Sorters<T extends Record<PropertyKey, unknown>>(
-  props: Props<T>,
-): React.JSX.Element {
+export function Sorters<T>(props: Props<T>): React.JSX.Element {
   const { setSortProperty, sortKeys } = props;
 
   return (
     <Select
       onValueChange={(value) => {
-        const [property, direction] = value.split("-");
+        const [property, direction] = value.split("-") as [
+          keyof T,
+          "asc" | "desc",
+        ];
         setSortProperty({
           property,
           isDescending: direction === "desc",

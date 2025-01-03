@@ -3,15 +3,13 @@ import { Label } from "@/components/ui/label";
 import React from "react";
 import { Filter } from "../interfaces/Filter";
 
-interface Props<T extends Record<PropertyKey, unknown>> {
+interface Props<T> {
   filterKeys: Array<keyof T>;
   filterProperties: Array<Filter<T>>;
   setFilterProperties(filterProperties: Array<Filter<T>>): void;
 }
 
-export function Filters<T extends Record<PropertyKey, unknown>>(
-  props: Props<T>,
-): React.JSX.Element {
+export function Filters<T>(props: Props<T>): React.JSX.Element {
   const { filterKeys, filterProperties, setFilterProperties } = props;
 
   function onChangeFilter(property: Filter<T>): void {
@@ -50,13 +48,13 @@ export function Filters<T extends Record<PropertyKey, unknown>>(
     <section className="flex flex-col gap-2 py-4">
       <h2>Filter</h2>
       {filterKeys
-        .filter((k): k is string => !!k)
+        .filter((k) => !!k)
         .map((key) => {
           return (
-            <React.Fragment key={key}>
+            <React.Fragment key={key.toString()}>
               <div className="flex items-center space-x-2">
                 <Checkbox
-                  id={`${key}-true`}
+                  id={`${key.toString()}-true`}
                   checked={filterProperties.some(
                     ({ property, isTruthySelected }) =>
                       property === key && isTruthySelected,
@@ -69,11 +67,13 @@ export function Filters<T extends Record<PropertyKey, unknown>>(
                   }}
                   className="bg-white"
                 />
-                <Label htmlFor={`${key}-true`}>{key}</Label>
+                <Label htmlFor={`${key.toString()}-true`}>
+                  {key.toString()}
+                </Label>
               </div>
               <div className="flex items-center space-x-2">
                 <Checkbox
-                  id={`${key}-false`}
+                  id={`${key.toString()}-false`}
                   checked={filterProperties.some(
                     ({ property, isTruthySelected }) =>
                       property === key && !isTruthySelected,
@@ -86,7 +86,9 @@ export function Filters<T extends Record<PropertyKey, unknown>>(
                   }}
                   className="bg-white"
                 />
-                <Label htmlFor={`${key}-false`}>not {key}</Label>
+                <Label htmlFor={`${key.toString()}-false`}>
+                  not {key.toString()}
+                </Label>
               </div>
             </React.Fragment>
           );

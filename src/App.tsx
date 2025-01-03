@@ -6,6 +6,8 @@ import { Button } from "./components/ui/button";
 import { Items } from "./constants";
 import { books } from "./dummyData/books";
 import { persons } from "./dummyData/persons";
+import { Book } from "./interfaces/Book";
+import { Person } from "./interfaces/Person";
 import { cn } from "./lib/utils";
 
 function App(): React.JSX.Element {
@@ -46,7 +48,7 @@ function App(): React.JSX.Element {
 
         <section className="bg-gray-300 p-4 rounded-lg w-full">
           {display === Items.BOOKS ? (
-            <SearchSortAndFilter
+            <SearchSortAndFilter<Book>
               dataSource={books}
               searchProperties={["title", "author"]}
               filterKeys={["inPrint"]}
@@ -60,7 +62,7 @@ function App(): React.JSX.Element {
               )}
             </SearchSortAndFilter>
           ) : (
-            <SearchSortAndFilter
+            <SearchSortAndFilter<Person>
               dataSource={persons}
               searchProperties={["firstName", "surname"]}
               filterKeys={["married", "eyeColor", "age"]}
