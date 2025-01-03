@@ -3,9 +3,8 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
-import Moment from "react-moment";
 import { Book } from "../../interfaces/Book";
 
 export function BookRenderer(props: Book): JSX.Element {
@@ -20,7 +19,7 @@ export function BookRenderer(props: Book): JSX.Element {
         <p>author: {author}</p>
         <p>pages: {pages} </p>
         <p>
-          createdAt: <Moment date={createdAt} format="YYYY/MM/DD" />
+          createdAt: {createdAt.toLocaleDateString()}
         </p>
         <p>in print: {inPrint.toString()}</p>
       </CardContent>
