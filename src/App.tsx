@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { BookRenderer } from "./components/Renderers/BookRenderer";
 import { PeopleRenderer } from "./components/Renderers/PeopleRenderer";
 import { SearchSortAndFilter } from "./components/SearchSortAndFilter";
@@ -8,7 +8,7 @@ import { books } from "./dummyData/books";
 import { persons } from "./dummyData/persons";
 import { cn } from "./lib/utils";
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const [display, setDisplay] = useState<keyof typeof Items>(Items.BOOKS);
 
   return (
@@ -55,7 +55,9 @@ function App(): JSX.Element {
               initialFilterProperties={[]}
               initialSearchQuery=""
             >
-              {(book): JSX.Element => <BookRenderer {...book} key={book._id} />}
+              {(book): React.JSX.Element => (
+                <BookRenderer {...book} key={book._id} />
+              )}
             </SearchSortAndFilter>
           ) : (
             <SearchSortAndFilter
@@ -67,7 +69,7 @@ function App(): JSX.Element {
               initialFilterProperties={[]}
               initialSearchQuery=""
             >
-              {(person): JSX.Element => (
+              {(person): React.JSX.Element => (
                 <PeopleRenderer {...person} key={person._id} />
               )}
             </SearchSortAndFilter>

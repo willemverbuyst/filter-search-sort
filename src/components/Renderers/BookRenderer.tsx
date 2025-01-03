@@ -3,11 +3,12 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
+import React from "react";
 import { Book } from "../../interfaces/Book";
 
-export function BookRenderer(props: Book): JSX.Element {
+export function BookRenderer(props: Book): React.JSX.Element {
   const { _id, author, createdAt, pages, inPrint, title } = props;
 
   return (
@@ -18,9 +19,7 @@ export function BookRenderer(props: Book): JSX.Element {
       <CardContent>
         <p>author: {author}</p>
         <p>pages: {pages} </p>
-        <p>
-          createdAt: {createdAt.toLocaleDateString()}
-        </p>
+        <p>createdAt: {createdAt.toLocaleDateString()}</p>
         <p>in print: {inPrint.toString()}</p>
       </CardContent>
       <CardFooter>id: {_id}</CardFooter>

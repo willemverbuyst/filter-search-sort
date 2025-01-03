@@ -11,7 +11,7 @@ interface Props<T extends Record<PropertyKey, any>> {
 
 export function Filters<T extends Record<PropertyKey, any>>(
   props: Props<T>,
-): JSX.Element {
+): React.JSX.Element {
   const { filterKeys, filterProperties, setFilterProperties } = props;
 
   function onChangeFilter(property: Filter<T>): void {

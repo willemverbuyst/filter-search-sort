@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 import { Input } from "./ui/input";
 
@@ -7,7 +7,7 @@ interface Props {
   setSearchQuery(searchQuery: string): void;
 }
 
-export function SearchInput(props: Props): JSX.Element {
+export function SearchInput(props: Props): React.JSX.Element {
   const { setSearchQuery, searchQuery } = props;
   const [query, setQuery] = useState<string>(searchQuery);
   const debouncedQuery = useDebounce<string>(query, 250);
