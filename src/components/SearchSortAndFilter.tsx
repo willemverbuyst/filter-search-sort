@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { genericFilter } from "../business/filter";
 import { genericSearch } from "../business/search";
 import { genericSort } from "../business/sort";
@@ -54,12 +54,14 @@ export function SearchSortAndFilter<T extends Record<PropertyKey, any>>(
         <section className="bg-gray-400 p-4 rounded-lg">
           <SearchInput
             searchQuery={initialSearchQuery}
-            setSearchQuery={(searchQuery) =>
-              setSearchSortAndFilterState((prev) => ({
-                ...prev,
-                searchQuery,
-              }))
-            }
+            setSearchQuery={useCallback(
+              (searchQuery) =>
+                setSearchSortAndFilterState((prev) => ({
+                  ...prev,
+                  searchQuery,
+                })),
+              [],
+            )}
           />
         </section>
 
