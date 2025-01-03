@@ -3,13 +3,13 @@ import { Label } from "@/components/ui/label";
 import React from "react";
 import { Filter } from "../interfaces/Filter";
 
-interface Props<T extends Record<PropertyKey, any>> {
+interface Props<T extends Record<PropertyKey, unknown>> {
   filterKeys: Array<keyof T>;
   filterProperties: Array<Filter<T>>;
   setFilterProperties(filterProperties: Array<Filter<T>>): void;
 }
 
-export function Filters<T extends Record<PropertyKey, any>>(
+export function Filters<T extends Record<PropertyKey, unknown>>(
   props: Props<T>,
 ): React.JSX.Element {
   const { filterKeys, filterProperties, setFilterProperties } = props;

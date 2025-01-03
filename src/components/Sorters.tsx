@@ -10,12 +10,12 @@ import { ArrowDown, ArrowUp } from "lucide-react";
 import React from "react";
 import { Sorter } from "../interfaces/Sorter";
 
-interface Props<T extends Record<PropertyKey, any>> {
+interface Props<T extends Record<PropertyKey, unknown>> {
   sortKeys: Array<keyof T>;
   setSortProperty(sortProperty: Sorter<T>): void;
 }
 
-export function Sorters<T extends Record<PropertyKey, any>>(
+export function Sorters<T extends Record<PropertyKey, unknown>>(
   props: Props<T>,
 ): React.JSX.Element {
   const { setSortProperty, sortKeys } = props;
